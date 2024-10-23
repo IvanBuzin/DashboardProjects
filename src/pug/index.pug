@@ -1,0 +1,88 @@
+    doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Dashboard
+    link(rel="stylesheet" href="path/to/your/main.css")
+    
+  body
+    .dashboard
+      //- Sidebar
+      aside.sidebar
+        .logo
+          img(src="path/to/logo.png", alt="Dashboard Logo")
+          span Dashboard
+        nav.menu
+          ul
+            li.menu-item
+              a(href="/dashboard") Dashboard
+            li.menu-item
+              a(href="/product") Product
+            li.menu-item.active
+              a(href="/customers") Customers
+            li.menu-item
+              a(href="/income") Income
+            li.menu-item
+              a(href="/promote") Promote
+            li.menu-item
+              a(href="/help") Help
+        .user-info
+          img(src="path/to/user-image.png", alt="User Image")
+          span Evano
+          small Project Manager
+
+      //- Main Content
+      main.content
+        .header
+          h1 Hello Evano 👋
+        .customers
+          .customers-header
+            h2 All Customers
+            a.active(href="#") Active Members
+            //- Search Input
+            .search-bar
+              input(type="text" placeholder="Search")
+              button Search
+          //- Table
+          table.customers-table
+            thead
+              tr
+                th Customer Name
+                th Company
+                th Phone Number
+                th Email
+                th Country
+                th Status
+            tbody
+              tr
+                td Jane Cooper
+                td Microsoft
+                td (225) 555-0118
+                td jane@microsoft.com
+                td United States
+                td.status.active Active
+              tr
+                td Floyd Miles
+                td Yahoo
+                td (205) 555-0100
+                td floyd@yahoo.com
+                td Kiribati
+                td.status.inactive Inactive
+              //- Add more rows as needed
+          //- Pagination
+          .pagination
+            span Showing data 1 to 8 of 256K entries
+            ul.pagination-list
+              li.page-item
+                a(href="#") 1
+              li.page-item
+                a(href="#") 2
+              li.page-item
+                a(href="#") 3
+              li.page-item
+                a(href="#") 4
+              li.page-item
+                a(href="#") ...
+              li.page-item
+                a(href="#") 40
