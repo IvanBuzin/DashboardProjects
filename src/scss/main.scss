@@ -1,0 +1,47 @@
+@import url("./blocks/_table.scss");
+@import url("./blocks/_sidebar.scss");
+@import url("./blocks/_header.scss");
+@import url("./base/_fonts.scss");
+@import url("./base/_reset.scss");
+@import url("./base/_variables.scss");
+
+:root {
+  --primary-text-color: #292d32;
+  --secondary-text-color: #b5b7c0;
+  --active-color: #16c098;
+  --inactive-color: #df0404;
+  --background-color: #ffffff;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--primary-text-color);
+}
+
+section {
+  padding: 10px 0;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 375px) {
+  .container {
+    max-width: 335px;
+  }
+}
+@media (min-width: 768px) {
+  section {
+    padding: 8px 0;
+  }
+  .container {
+    padding: 0 16px;
+    max-width: 736px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1408px;
+  }
+}

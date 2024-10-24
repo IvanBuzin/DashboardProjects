@@ -1,16 +1,17 @@
-    doctype html
+  doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Dashboard
-    link(rel="stylesheet" href="path/to/your/main.css")
+    link(rel="stylesheet" href="../scss/main.scss")
     
   body
     .dashboard
       //- Sidebar
       aside.sidebar
         .logo
+        source (media="(min-width: 769px)" srcset="img/logo.png")        source (media="(min-width: 768px)" srcset="img/logo-mob.png")
           img(src="path/to/logo.png", alt="Dashboard Logo")
           span Dashboard
         nav.menu
@@ -43,7 +44,7 @@ html(lang="en")
             //- Search Input
             .search-bar
               input(type="text" placeholder="Search")
-              button Search
+              button Search 
           //- Table
           table.customers-table
             thead
@@ -69,6 +70,48 @@ html(lang="en")
                 td floyd@yahoo.com
                 td Kiribati
                 td.status.inactive Inactive
+              tr 
+                td Ronald Richards
+                td Adobe
+                td (302) 555-0107
+                td ronald@adobe.com
+                td Israel
+                td.status.inactive Inactive
+              tr 
+                td Marvin McKinney
+                td Tesla
+                td (252) 555-0126
+                td marvin@tesla.com
+                td Iran
+                td.status.active Active
+              tr 
+                td Jerome Bell
+                td Google
+                td (629) 555-0129
+                td jerome@google.com
+                td Réunion
+                td.status.active Active
+              tr 
+                td Kathryn Murphy
+                td Microsoft
+                td (406) 555-0120
+                td kathryn@microsoft.com
+                td Curaçao
+                td.status.active Active
+              tr 
+                td Jacob Jones
+                td Yahoo
+                td (208) 555-0112
+                td jacob@yahoo.com
+                td Brazil
+                td.status.active Active
+              tr 
+                td Kristin Watson
+                td Facebook
+                td (704) 555-0127
+                td kristin@facebook.com
+                td Åland Islands
+                td.status.inactive Inactive
               //- Add more rows as needed
           //- Pagination
           .pagination
@@ -86,3 +129,6 @@ html(lang="en")
                 a(href="#") ...
               li.page-item
                 a(href="#") 40
+script (src="../js/main.js")
+script (src="https://unpkg.com/sweetalert/dist/sweetalert.min.js")
+      

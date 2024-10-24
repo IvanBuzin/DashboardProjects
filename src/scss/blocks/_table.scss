@@ -1,0 +1,1840 @@
+/* Спочатку ховаємо таблицю */
+.customer-table {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.table-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Анімація при наведенні на рядок таблиці */
+.customer-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.row-hover {
+  background-color: #f1f1f1; /* Колір при наведенні */
+}
+.row-animate {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.row-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+}
+
+.status.active {
+  background-color: rgba(22, 192, 152, 0.38);
+  color: #008767;
+  border: 1px solid #00b087;
+}
+
+.status.inactive {
+  background-color: #ffc5c5;
+  color: #df0404;
+  border: 1px solid #df0404;
+}
+
+/* Product */
+.content {
+  position: absolute;
+  width: 968px;
+  height: 812px;
+  left: 377px;
+  top: 128px;
+
+  /* Rectangle 30 */
+  background: #ffffff;
+  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
+  border-radius: 30px;
+}
+/* Showing data 1 to 8 of 256K entries */
+span {
+  position: absolute;
+  width: 243px;
+  height: 21px;
+  left: 415px;
+  top: 878px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  letter-spacing: -0.01em;
+
+  color: #b5b7c0;
+}
+
+/* All Customers */
+h2 {
+  position: absolute;
+  width: 155px;
+  height: 33px;
+  left: 415px;
+  top: 158px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  /* identical to box height */
+  letter-spacing: -0.01em;
+
+  color: #000000;
+}
+/* Active Members */
+a.active {
+  position: absolute;
+  width: 111px;
+  height: 21px;
+  left: 415px;
+  top: 198px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  letter-spacing: -0.01em;
+
+  color: #16c098;
+}
+/* Group 22 */
+.table {
+  position: absolute;
+  width: 968px;
+  height: 587px;
+  left: 377px;
+  top: 259px;
+}
+/* Group 21 */
+.thead {
+  position: absolute;
+  width: 863px;
+  height: 21px;
+  left: 415px;
+  top: 259px;
+}
+/* Customer Name */
+.thead tr th {
+  position: absolute;
+  width: 115px;
+  height: 21px;
+  left: 415px;
+  top: 259px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  letter-spacing: -0.01em;
+
+  color: #b5b7c0;
+}
+/* Company */
+
+position: absolute;
+width: 70px;
+height: 21px;
+left: 587px;
+top: 259px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #b5b7c0;
+
+/* Phone Number */
+
+position: absolute;
+width: 104px;
+height: 21px;
+left: 718px;
+top: 259px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #b5b7c0;
+
+/* Email */
+
+position: absolute;
+width: 39px;
+height: 21px;
+left: 874px;
+top: 259px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #b5b7c0;
+
+/* Country */
+
+position: absolute;
+width: 56px;
+height: 21px;
+left: 1081px;
+top: 259px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #b5b7c0;
+
+/* Status */
+
+position: absolute;
+width: 45px;
+height: 21px;
+left: 1233px;
+top: 259px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.01em;
+
+color: #b5b7c0;
+
+/* Group 22 */
+
+position: absolute;
+width: 886px;
+height: 29px;
+left: 415px;
+top: 314px;
+
+/* Jane Cooper */
+
+position: absolute;
+width: 90px;
+height: 21px;
+left: 415px;
+top: 318px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Microsoft */
+
+position: absolute;
+width: 64px;
+height: 21px;
+left: 587px;
+top: 318px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (225) 555-0118 */
+
+position: absolute;
+width: 104px;
+height: 21px;
+left: 718px;
+top: 318px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* jane@microsoft.com */
+
+position: absolute;
+width: 146px;
+height: 21px;
+left: 874px;
+top: 318px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* United States */
+
+position: absolute;
+width: 93px;
+height: 21px;
+left: 1081px;
+top: 318px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 80px;
+height: 29px;
+left: 1221px;
+top: 314px;
+
+background: rgba(22, 192, 152, 0.38);
+border: 1px solid #00b087;
+border-radius: 4px;
+
+/* Active */
+
+width: 44px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #008767;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Group 23 */
+
+position: absolute;
+width: 886px;
+height: 29px;
+left: 415px;
+top: 383px;
+
+/* Floyd Miles */
+
+position: absolute;
+width: 76px;
+height: 21px;
+left: 415px;
+top: 387px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Yahoo */
+
+position: absolute;
+width: 45px;
+height: 21px;
+left: 587px;
+top: 387px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (205) 555-0100 */
+
+position: absolute;
+width: 109px;
+height: 21px;
+left: 718px;
+top: 387px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* floyd@yahoo.com */
+
+position: absolute;
+width: 128px;
+height: 21px;
+left: 874px;
+top: 387px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Kiribati */
+
+position: absolute;
+width: 49px;
+height: 21px;
+left: 1081px;
+top: 387px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 80px;
+height: 29px;
+left: 1221px;
+top: 383px;
+
+background: #ffc5c5;
+border: 1px solid #df0404;
+border-radius: 4px;
+
+/* Inactive */
+
+width: 56px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #df0404;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Group 24 */
+.search-bar {
+  position: absolute;
+  width: 886px;
+  height: 29px;
+  left: 415px;
+  top: 452px;
+}
+/* Ronald Richards */
+
+position: absolute;
+width: 114px;
+height: 21px;
+left: 415px;
+top: 456px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Adobe */
+
+position: absolute;
+width: 46px;
+height: 21px;
+left: 587px;
+top: 456px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (302) 555-0107 */
+
+position: absolute;
+width: 107px;
+height: 21px;
+left: 718px;
+top: 456px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* ronald@adobe.com */
+
+position: absolute;
+width: 140px;
+height: 21px;
+left: 874px;
+top: 456px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Israel */
+
+position: absolute;
+width: 38px;
+height: 21px;
+left: 1081px;
+top: 456px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 80px;
+height: 29px;
+left: 1221px;
+top: 452px;
+
+background: #ffc5c5;
+border: 1px solid #df0404;
+border-radius: 4px;
+
+/* Inactive */
+
+width: 56px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #df0404;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Group 25 */
+
+position: absolute;
+width: 886px;
+height: 29px;
+left: 415px;
+top: 521px;
+
+/* Marvin McKinney */
+
+position: absolute;
+width: 118px;
+height: 21px;
+left: 415px;
+top: 525px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Tesla */
+
+position: absolute;
+width: 37px;
+height: 21px;
+left: 587px;
+top: 525px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (252) 555-0126 */
+
+position: absolute;
+width: 107px;
+height: 21px;
+left: 718px;
+top: 525px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* marvin@tesla.com */
+
+position: absolute;
+width: 133px;
+height: 21px;
+left: 874px;
+top: 525px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Iran */
+
+position: absolute;
+width: 28px;
+height: 21px;
+left: 1081px;
+top: 525px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 80px;
+height: 29px;
+left: 1221px;
+top: 521px;
+
+background: rgba(22, 192, 152, 0.38);
+border: 1px solid #00b087;
+border-radius: 4px;
+
+/* Active */
+
+width: 44px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #008767;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Group 26 */
+
+position: absolute;
+width: 886px;
+height: 29px;
+left: 415px;
+top: 590px;
+
+/* Jerome Bell */
+
+position: absolute;
+width: 82px;
+height: 21px;
+left: 415px;
+top: 594px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Google */
+
+position: absolute;
+width: 50px;
+height: 21px;
+left: 587px;
+top: 594px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (629) 555-0129 */
+
+position: absolute;
+width: 108px;
+height: 21px;
+left: 718px;
+top: 594px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* jerome@google.com */
+
+position: absolute;
+width: 147px;
+height: 21px;
+left: 874px;
+top: 594px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Réunion */
+
+position: absolute;
+width: 57px;
+height: 21px;
+left: 1081px;
+top: 594px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 80px;
+height: 29px;
+left: 1221px;
+top: 590px;
+
+background: rgba(22, 192, 152, 0.38);
+border: 1px solid #00b087;
+border-radius: 4px;
+
+/* Active */
+
+width: 44px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #008767;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Group 27 */
+
+position: absolute;
+width: 890px;
+height: 29px;
+left: 415px;
+top: 659px;
+
+/* Kathryn Murphy */
+
+position: absolute;
+width: 111px;
+height: 21px;
+left: 415px;
+top: 663px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Microsoft */
+
+position: absolute;
+width: 64px;
+height: 21px;
+left: 587px;
+top: 663px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (406) 555-0120 */
+
+position: absolute;
+width: 109px;
+height: 21px;
+left: 718px;
+top: 663px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* kathryn@microsoft.com */
+
+position: absolute;
+width: 169px;
+height: 21px;
+left: 874px;
+top: 663px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Curaçao */
+
+position: absolute;
+width: 61px;
+height: 21px;
+left: 1081px;
+top: 663px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 84px;
+height: 29px;
+left: 1221px;
+top: 659px;
+
+background: rgba(22, 192, 152, 0.38);
+border: 1px solid #00b087;
+border-radius: 4px;
+
+/* Active */
+
+width: 44px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #008767;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Group 28 */
+
+position: absolute;
+width: 890px;
+height: 29px;
+left: 415px;
+top: 728px;
+
+/* Jacob Jones */
+
+position: absolute;
+width: 89px;
+height: 21px;
+left: 415px;
+top: 732px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Yahoo */
+
+position: absolute;
+width: 45px;
+height: 21px;
+left: 587px;
+top: 732px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (208) 555-0112 */
+
+position: absolute;
+width: 104px;
+height: 21px;
+left: 718px;
+top: 732px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* jacob@yahoo.com */
+
+position: absolute;
+width: 133px;
+height: 21px;
+left: 874px;
+top: 732px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Brazil */
+
+position: absolute;
+width: 37px;
+height: 21px;
+left: 1081px;
+top: 732px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 84px;
+height: 29px;
+left: 1221px;
+top: 728px;
+
+background: rgba(22, 192, 152, 0.38);
+border: 1px solid #00b087;
+border-radius: 4px;
+
+/* Active */
+
+width: 44px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #008767;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Group 29 */
+
+position: absolute;
+width: 890px;
+height: 29px;
+left: 415px;
+top: 797px;
+
+/* Kristin Watson */
+
+position: absolute;
+width: 100px;
+height: 21px;
+left: 415px;
+top: 801px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Facebook */
+
+position: absolute;
+width: 68px;
+height: 21px;
+left: 587px;
+top: 801px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* (704) 555-0127 */
+
+position: absolute;
+width: 107px;
+height: 21px;
+left: 718px;
+top: 801px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* kristin@facebook.com */
+
+position: absolute;
+width: 156px;
+height: 21px;
+left: 874px;
+top: 801px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Åland Islands */
+
+position: absolute;
+width: 94px;
+height: 21px;
+left: 1081px;
+top: 801px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #292d32;
+
+/* Frame 291 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 4px 12px;
+gap: 10px;
+
+position: absolute;
+width: 84px;
+height: 29px;
+left: 1221px;
+top: 797px;
+
+background: #ffc5c5;
+border: 1px solid #df0404;
+border-radius: 4px;
+
+/* Inactive */
+
+width: 56px;
+height: 21px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #df0404;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Line 4 */
+
+position: absolute;
+width: 968px;
+height: 0px;
+left: 377px;
+top: 294px;
+
+border: 1px solid #eeeeee;
+
+/* Line 5 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 363px;
+
+border: 1px solid #eeeeee;
+
+/* Line 6 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 432px;
+
+border: 1px solid #eeeeee;
+
+/* Line 7 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 501px;
+
+border: 1px solid #eeeeee;
+
+/* Line 8 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 570px;
+
+border: 1px solid #eeeeee;
+
+/* Line 9 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 639px;
+
+border: 1px solid #eeeeee;
+
+/* Line 10 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 708px;
+
+border: 1px solid #eeeeee;
+
+/* Line 11 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 777px;
+
+border: 1px solid #eeeeee;
+
+/* Line 12 */
+
+position: absolute;
+width: 888px;
+height: 0px;
+left: 417px;
+top: 846px;
+
+border: 1px solid #eeeeee;
+
+/* Group 24 */
+
+position: absolute;
+width: 216px;
+height: 38px;
+left: 1076px;
+top: 172px;
+
+/* Rectangle 31 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 216px;
+height: 38px;
+left: 1076px;
+top: 172px;
+
+background: #f9fbff;
+border-radius: 10px;
+
+/* Search */
+
+position: absolute;
+width: 42px;
+height: 18px;
+left: 1116px;
+top: 182px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+letter-spacing: -0.01em;
+
+color: #b5b7c0;
+
+/* search 1 */
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 1084px;
+top: 179px;
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 20.83%;
+top: 12.5%;
+bottom: 20.83%;
+
+border: 2px solid #7e7e7e;
+
+/* Vector */
+
+position: absolute;
+left: 69.37%;
+right: 12.5%;
+top: 69.37%;
+bottom: 12.5%;
+
+border: 2px solid #7e7e7e;
+
+/* Group 299 */
+
+position: absolute;
+width: 271px;
+height: 24px;
+left: 1034px;
+top: 876px;
+
+/* Frame 292 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 10px;
+gap: 10px;
+
+position: absolute;
+width: 25px;
+height: 24px;
+left: 1072px;
+top: 876px;
+
+background: #5932ea;
+border: 1px solid #5932ea;
+border-radius: 4px;
+
+/* 1 */
+
+width: 5px;
+height: 12px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #ffffff;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Frame 293 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 9px;
+gap: 10px;
+
+position: absolute;
+width: 25px;
+height: 24px;
+left: 1109px;
+top: 876px;
+
+background: #f5f5f5;
+border: 1px solid #eeeeee;
+border-radius: 4px;
+
+/* 2 */
+
+width: 7px;
+height: 12px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #404b52;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Frame 295 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 9px;
+gap: 10px;
+
+position: absolute;
+width: 26px;
+height: 24px;
+left: 1182px;
+top: 876px;
+
+background: #f5f5f5;
+border: 1px solid #eeeeee;
+border-radius: 4px;
+
+/* 4 */
+
+width: 8px;
+height: 12px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #404b52;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Frame 296 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 5px;
+gap: 10px;
+
+position: absolute;
+width: 26px;
+height: 24px;
+left: 1241px;
+top: 876px;
+
+background: #f5f5f5;
+border: 1px solid #eeeeee;
+border-radius: 4px;
+
+/* 40 */
+
+width: 16px;
+height: 12px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #404b52;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Frame 297 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 9px;
+gap: 10px;
+
+position: absolute;
+width: 26px;
+height: 24px;
+left: 1279px;
+top: 876px;
+
+background: #f5f5f5;
+border: 1px solid #eeeeee;
+border-radius: 4px;
+
+/* > */
+
+width: 8px;
+height: 12px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #404b52;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* Frame 298 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 9px;
+gap: 10px;
+
+position: absolute;
+width: 26px;
+height: 24px;
+left: 1034px;
+top: 876px;
+
+background: #f5f5f5;
+border: 1px solid #eeeeee;
+border-radius: 4px;
+
+/* < */
+
+width: 8px;
+height: 12px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #404b52;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+/* ... */
+
+position: absolute;
+width: 9px;
+height: 12px;
+left: 1220px;
+top: 884px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #000000;
+
+/* Frame 294 */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 8px;
+gap: 10px;
+
+position: absolute;
+width: 24px;
+height: 24px;
+left: 1146px;
+top: 876px;
+
+background: #f5f5f5;
+border: 1px solid #eeeeee;
+border-radius: 4px;
+
+/* 3 */
+
+width: 8px;
+height: 12px;
+
+font-family: "Poppins";
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+/* identical to box height, or 12px */
+letter-spacing: -0.01em;
+
+color: #404b52;
