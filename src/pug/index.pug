@@ -4,41 +4,41 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Dashboard
-    link(rel="stylesheet" href="../scss/main.scss")
-    //- link(rel="alternate", href="atom.xml", type="application/atom+xml", title="Atom")
-    //- link(rel="stylesheet", href="../scss/blocks/_header.scss")
+    link(rel="stylesheet" href="src/scss/main.scss")
+    link(rel="alternate", href="atom.xml", type="application/atom+xml", title="Atom")
+    link(rel="stylesheet", href="scss/blocks/_header.scss")
   body
     .dashboard
       //- Sidebar
       aside.sidebar
         .logo
           picture
-            source(media="(min-width: 769px)" srcset="../assets/img/logo.png")
-            source(media="(max-width: 768px)" srcset="../assets/img/logo.png")
-            img(src="../assets/img/logo.png", alt="Dashboard Logo")
+            source(media="(min-width: 769px)" srcset="assets/img/logo.png")
+            source(media="(max-width: 768px)" srcset="assets/img/logo.png")
+            img(src="assets/img/logo.png", alt="Dashboard Logo")
           span Dashboard v.01
         nav.menu
           ul
             li.menu-item
-            img(src="../assets/img/key-square.png", alt="Dashboard")
+            img(src="assets/img/key-square.png", alt="Dashboard")
               a(href="/dashboard") Dashboard
             li.menu-item
-            img(src="../assets/img/3d-square 1.png", alt="Product")
+            img(src="assets/img/3d-square 1.png", alt="Product")
               a(href="/product") Product
             li.menu-item.active
-            img(src="../assets/img/user-square 1v.png", alt="Customers")
+            img(src="assets/img/user-square 1v.png", alt="Customers")
               a(href="/customers") Customers
             li.menu-item
-            img(src="../assets/img/wallet-money 2.png", alt="Income")
+            img(src="assets/img/wallet-money 2.png", alt="Income")
               a(href="/income") Income
             li.menu-item
-            img(src="../assets/img/discount-shape 1.png", alt="Promote")
+            img(src="assets/img/discount-shape 1.png", alt="Promote")
               a(href="/promote") Promote
             li.menu-item
-            img(src="../assets/img/message-question 1.png", alt="Message")
+            img(src="assets/img/message-question 1.png", alt="Message")
               a(href="/help") Help
         .user-info
-          img(src="../assets/img/Ellipse 8.png", alt="User Image")
+          img(src="assets/img/Ellipse 8.png", alt="User Image")
           span Evano
           small Project Manager
 
