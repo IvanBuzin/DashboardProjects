@@ -6,9 +6,12 @@ table.table
       th Age
       th Email
   tbody
-    each item in data
+    if data.length 
+      each item in data
+        tr
+          td= item.id
+          td= item.name
+          td= item.email
+    else
       tr
-        td= item.id
-        td= item.name
-        td= item.age
-        td= item.email
+        td(colspan="3") No data available

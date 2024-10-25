@@ -64,5 +64,8 @@
     .profile-info
       .name Evano
       .role Project Manager
-each item in data
+if data && data.length
+  each item in data
     div= item.name
+else
+  div No data available
