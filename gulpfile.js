@@ -8,7 +8,7 @@ function compilePug() {
   return gulp
     .src("src/pug/**/*.pug")
     .pipe(pug({ pretty: true }))
-    .pipe(gulp.dest("dist"))
+    .pipe(gulp.dest("Compiled-HTML"))
     .pipe(browserSync.stream());
 }
 
@@ -17,7 +17,7 @@ function compileScss() {
   return gulp
     .src("src/scss/**/*.scss")
     .pipe(sass().on("error", sass.logError))
-    .pipe(gulp.dest("dist/css"))
+    .pipe(gulp.dest("Compiled-HTML/css"))
     .pipe(browserSync.stream());
 }
 
