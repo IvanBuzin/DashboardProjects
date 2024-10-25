@@ -28,7 +28,7 @@ section {
   margin: 0 auto;
   padding: 0 20px;
 }
-. @media (min-width: 375px) {
+@media (min-width: 375px) {
   .container {
     max-width: 335px;
   }
