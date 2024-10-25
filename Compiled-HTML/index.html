@@ -2,29 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="src/scss/main.scss">
     <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom">
-    <link rel="stylesheet" href="scss/blocks/_header.scss">
-  </head>
-  <body>
+    <body></body>
     <div class="dashboard">
       <aside class="sidebar">
         <div class="logo">
-          <picture><img src="path/to/logo.png" alt="Dashboard Logo"></picture><span>Dashboard v.01</span>
+          <picture><img src="img/logo.png" alt="Logo"></picture><span>Dashboard v.01</span>
         </div>
         <nav class="menu">
           <ul>
-            <li class="menu-item"></li><img src="path/to/key.png" alt="key"><a href="/dashboard">Dashboard</a>
-            <li class="menu-item"></li><img src="path/to/square.png" alt="Product"><a href="/product">Product</a>
-            <li class="menu-item active"></li><img src="path/to/userv.png" alt="Customers"><a href="/customers">Customers</a>
-            <li class="menu-item"></li><img src="path/tog/money.png" alt="Income"><a href="/income">Income</a>
-            <li class="menu-item"></li><img src="path/to/discount.png" alt="Promote"><a href="/promote">Promote</a>
-            <li class="menu-item"></li><img src="path/to/message.png" alt="Message"><a href="/help">Help</a>
+            <li class="menu-item"></li><img src="img/key.png" alt="key"><a href="/dashboard">Dashboard</a>
+            <li class="menu-item"></li><img src="img/key.png" alt="Product"><a href="/product">Product</a>
+            <li class="menu-item active"></li><img src="img/userv.png" alt="Customers"><a href="/customers">Customers</a>
+            <li class="menu-item"></li><img src="img/money.png" alt="Income"><a href="/income">Income</a>
+            <li class="menu-item"></li><img src="img/discount.png" alt="Promote"><a href="/promote">Promote</a>
+            <li class="menu-item"></li><img src="img/message.png" alt="Message"><a href="/help">Help</a>
           </ul>
         </nav>
-        <div class="user-info"><img src="path/to/photo.png" alt="User Image"><span>Evano</span><small>Project Manager</small></div>
+        <div class="user-info"><img src="img/photo.png" alt="User Image"><span>Evano</span><small>Project Manager</small></div>
       </aside>
       <main class="content">
         <div class="header">
@@ -129,5 +128,5 @@
         </div>
       </main>
     </div>
-  </body>
+  </head>
 </html>

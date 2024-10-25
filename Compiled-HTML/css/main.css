@@ -53,3 +53,9 @@ section {
 aside {
   width: 300px;
 }
+
+.customers-header {
+  display: flex;
+  flex-direction: row;
+  gap: 300px;
+}

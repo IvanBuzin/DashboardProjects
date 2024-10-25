@@ -2,41 +2,42 @@ doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
+    meta(http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'")
+
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Dashboard
     link(rel="stylesheet" href="src/scss/main.scss")
     link(rel="alternate", href="atom.xml", type="application/atom+xml", title="Atom")
-    link(rel="stylesheet", href="scss/blocks/_header.scss")
-  body
+    body
     .dashboard
       //- Sidebar
       aside.sidebar
         .logo
           picture
-           img(src="path/to/logo.png", alt="Dashboard Logo")
+           img(src="img/logo.png", alt="Logo")
           span Dashboard v.01
         nav.menu
           ul
             li.menu-item
-            img(src="path/to/key.png", alt="key")
+            img(src="img/key.png", alt="key")
             a(href="/dashboard") Dashboard
             li.menu-item
-            img(src="path/to/square.png", alt="Product")
+            img(src="img/key.png", alt="Product")
             a(href="/product") Product
             li.menu-item.active
-            img(src="path/to/userv.png", alt="Customers")
+            img(src="img/userv.png", alt="Customers")
             a(href="/customers") Customers
             li.menu-item
-            img(src="path/tog/money.png", alt="Income")
+            img(src="img/money.png", alt="Income")
             a(href="/income") Income
             li.menu-item
-            img(src="path/to/discount.png", alt="Promote")
+            img(src="img/discount.png", alt="Promote")
             a(href="/promote") Promote
             li.menu-item
-            img(src="path/to/message.png", alt="Message")
+            img(src="img/message.png", alt="Message")
             a(href="/help") Help
         .user-info
-          img(src="path/to/photo.png", alt="User Image")
+          img(src="img/photo.png", alt="User Image")
           span Evano
           small Project Manager
 
