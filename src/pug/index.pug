@@ -11,177 +11,140 @@ html(lang="en")
     body
     .dashboard
       //- Sidebar
-      //- aside.side-menu
-      //-   .logo
-      //-     picture
-      //-      img(src="img/logo.svg", alt="Logo")
-      //-     h4  Dashboard
-      //-     p v.01
-      //-   nav.menu
-      //-     ul.side 
-      //-       li.menu-item
-      //-       img(src="img/key.svg", alt="key")
-      //-       a(href="/dashboard") Dashboard
-      //-       li.menu-item
-      //-       img(src="img/square.svg", alt="Product")
-      //-       a(href="/product") Product
-      //-       img(src="img/right.svg", alt="Product")
-      //-       li.menu-item.active
-      //-       img(src="img/user.svg", alt="Customers")
-      //-       a(href="/customers") Customers
-      //-       img(src="img/right.svg", alt="Product")
-      //-       li.menu-item
-      //-       img(src="img/money.svg", alt="Income")
-      //-       a(href="/income") Income
-      //-       img(src="img/right.svg", alt="Product")
-      //-       li.menu-item
-      //-       img(src="img/discount.svg", alt="Promote")
-      //-       a(href="/promote") Promote
-      //-       img(src="img/right.svg", alt="Product")
-      //-       li.menu-item
-      //-       img(src="img/message.svg", alt="Message")
-      //-       a(href="/help") Help
-      //-       img(src="img/right.svg", alt="Product")
-            
-      //-   .user-info
-      //-     img(src="img/photo.svg", alt="User Image")
-      //-     span Evano
-      //-     small Project Manager
-//- Sidebar
-aside.side-menu
-  .logo
-    picture
-      img(src="img/logo.svg", alt="Logo")
-    h4.dashboard-header Dashboard
-    p.version-info v.01
+      aside.side-menu
+        .logo
+        picture
+        img(src="img/logo.svg", alt="Logo")
+        h4.dashboard-header Dashboard
+        p.version-info v.01
 
-  nav.menu
-    ul.side
-      li.menu-item
-        img.menu-icon.key(src="img/key.svg", alt="key")
-        a.menu-text(href="/dashboard") Dashboard
-      li.menu-item
-        img.menu-icon(src="img/square.svg", alt="Product")
-        a.menu-text(href="/product") Product
-        img.chevron-right(src="img/right.svg", alt="Product")
-      li.menu-item.active
-        img.menu-icon.(src="img/user.svg", alt="Customers")
-        a.menu-item-active(href="/customers") Customers
-        img.chevron-right-active(src="img/chevron-right-active.svg", alt="Product")
-      li.menu-item
-        img.menu-icon(src="img/money.svg", alt="Income")
-        a.menu-text(href="/income") Income
-        img.chevron-right(src="img/right.svg", alt="Product")
-      li.menu-item
-        img.menu-icon(src="img/discount.svg", alt="Promote")
-        a.menu-text(href="/promote") Promote
-        img.chevron-right(src="img/right.svg", alt="Product")
-      li.menu-item
-        img.menu-icon(src="img/message.svg", alt="Message")
-        a.menu-text(href="/help") Help
-        img.chevron-right(src="img/right.svg", alt="Product")
+        nav.menu
+          ul.side
+            li.menu-item
+              img.menu-icon.key(src="img/key.svg", alt="key")
+              a.menu-text(href="/dashboard") Dashboard
+            li.menu-item
+              img.menu-icon(src="img/square.svg", alt="Product")
+              a.menu-text(href="/product") Product
+              img.chevron-right(src="img/right.svg", alt="Product")
+            li.menu-item.active
+              img.menu-icon.(src="img/user.svg", alt="Customers")
+              a.menu-item-active(href="/customers") Customers
+              img.right-active(src="img/active.svg", alt="Product")
+            li.menu-item
+              img.menu-icon(src="img/money.svg", alt="Income")
+              a.menu-text(href="/income") Income
+              img.chevron-right(src="img/right.svg", alt="Product")
+            li.menu-item
+              img.menu-icon(src="img/discount.svg", alt="Promote")
+              a.menu-text(href="/promote") Promote
+              img.chevron-right(src="img/right.svg", alt="Product")
+            li.menu-item
+              img.menu-icon(src="img/message.svg", alt="Message")
+              a.menu-text(href="/help") Help
+              img.chevron-right(src="img/right.svg", alt="Product")
 
-  .profile-group
+    .profile-group
     img.profile-image(src="img/photo.svg", alt="User Image")
     .profile-info
-      span.name Evano
-      small.role Project Manager
+    span.name Evano
+    small.role Project Manager
 
       //- Main Content
-      main.content
-        .header
-          h1 Hello Evano 👋
-        .customers
-          .customers-header
-            h2 All Customers
-            a.active(href="#" role="button") Active Members
-            //- Search Input
-            .search-bar
-              input(type="text" placeholder="Search")
-              button(type="button") Search 
-          //- Table
-          table.customers-table
-            thead
-              tr
-                th Customer Name
-                th Company
-                th Phone Number
-                th Email
-                th Country
-                th Status
-            tbody
-              tr
-                td Jane Cooper
-                td Microsoft
-                td (225) 555-0118
-                td jane@microsoft.com
-                td United States
-                td.status.active Active
-              tr
-                td Floyd Miles
-                td Yahoo
-                td (205) 555-0100
-                td floyd@yahoo.com
-                td Kiribati
-                td.status.inactive Inactive
-              tr 
-                td Ronald Richards
-                td Adobe
-                td (302) 555-0107
-                td ronald@adobe.com
-                td Israel
-                td.status.inactive Inactive
-              tr 
-                td Marvin McKinney
-                td Tesla
-                td (252) 555-0126
-                td marvin@tesla.com
-                td Iran
-                td.status.active Active
-              tr 
-                td Jerome Bell
-                td Google
-                td (629) 555-0129
-                td jerome@google.com
-                td Réunion
-                td.status.active Active
-              tr 
-                td Kathryn Murphy
-                td Microsoft
-                td (406) 555-0120
-                td kathryn@microsoft.com
-                td Curaçao
-                td.status.active Active
-              tr 
-                td Jacob Jones
-                td Yahoo
-                td (208) 555-0112
-                td jacob@yahoo.com
-                td Brazil
-                td.status.active Active
-              tr 
-                td Kristin Watson
-                td Facebook
-                td (704) 555-0127
-                td kristin@facebook.com
-                td Åland Islands
-                td.status.inactive Inactive
-              //- Add more rows as needed
-          //- Pagination
-          .pagination
-            span Showing data 1 to 8 of 256K entries
-            ul.pagination-list(aria-label="Pagination")
-              li.page-item
-                a(href="#") 1
-              li.page-item
-                a(href="#") 2
-              li.page-item
-                a(href="#") 3
-              li.page-item
-                a(href="#") 4
-              li.page-item
-                a(href="#") ...
-              li.page-item
-                a(href="#") 40
-  
-      
+    main.content
+      .header
+      h1 Hello Evano 👋
+      .customers
+      .customers-header
+      h2 All Customers
+      a.active(href="#" role="button") Active Members
+                  //- Search Input
+                  .search-bar
+                    input(type="text" placeholder="Search")
+                    button(type="button") Search 
+                //- Table
+                table.customers-table
+                  thead
+                    tr
+                      th Customer Name
+                      th Company
+                      th Phone Number
+                      th Email
+                      th Country
+                      th Status
+                  tbody
+                    tr
+                      td Jane Cooper
+                      td Microsoft
+                      td (225) 555-0118
+                      td jane@microsoft.com
+                      td United States
+                      td.status.active Active
+                    tr
+                      td Floyd Miles
+                      td Yahoo
+                      td (205) 555-0100
+                      td floyd@yahoo.com
+                      td Kiribati
+                      td.status.inactive Inactive
+                    tr 
+                      td Ronald Richards
+                      td Adobe
+                      td (302) 555-0107
+                      td ronald@adobe.com
+                      td Israel
+                      td.status.inactive Inactive
+                    tr 
+                      td Marvin McKinney
+                      td Tesla
+                      td (252) 555-0126
+                      td marvin@tesla.com
+                      td Iran
+                      td.status.active Active
+                    tr 
+                      td Jerome Bell
+                      td Google
+                      td (629) 555-0129
+                      td jerome@google.com
+                      td Réunion
+                      td.status.active Active
+                    tr 
+                      td Kathryn Murphy
+                      td Microsoft
+                      td (406) 555-0120
+                      td kathryn@microsoft.com
+                      td Curaçao
+                      td.status.active Active
+                    tr 
+                      td Jacob Jones
+                      td Yahoo
+                      td (208) 555-0112
+                      td jacob@yahoo.com
+                      td Brazil
+                      td.status.active Active
+                    tr 
+                      td Kristin Watson
+                      td Facebook
+                      td (704) 555-0127
+                      td kristin@facebook.com
+                      td Åland Islands
+                      td.status.inactive Inactive
+                    //- Add more rows as needed
+                //- Pagination
+                .pagination
+                  span Showing data 1 to 8 of 256K entries
+                  ul.pagination-list(aria-label="Pagination")
+                    li.page-item
+                      a(href="#") 1
+                    li.page-item
+                      a(href="#") 2
+                    li.page-item
+                      a(href="#") 3
+                    li.page-item
+                      a(href="#") 4
+                    li.page-item
+                      a(href="#") ...
+                    li.page-item
+                      a(href="#") 40
+        
+            
