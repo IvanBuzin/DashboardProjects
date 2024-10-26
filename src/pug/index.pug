@@ -6,40 +6,86 @@ html(lang="en")
 
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title Dashboard
-    link(rel="stylesheet" href="src/scss/main.scss")
+    link(rel="stylesheet" href="css/main.css")
     link(rel="alternate", href="atom.xml", type="application/atom+xml", title="Atom")
     body
     .dashboard
       //- Sidebar
-      aside.sidebar
-        .logo
-          picture
-           img(src="img/logo.png", alt="Logo")
-          span Dashboard v.01
-        nav.menu
-          ul
-            li.menu-item
-            img(src="img/key.png", alt="key")
-            a(href="/dashboard") Dashboard
-            li.menu-item
-            img(src="img/key.png", alt="Product")
-            a(href="/product") Product
-            li.menu-item.active
-            img(src="img/userv.png", alt="Customers")
-            a(href="/customers") Customers
-            li.menu-item
-            img(src="img/money.png", alt="Income")
-            a(href="/income") Income
-            li.menu-item
-            img(src="img/discount.png", alt="Promote")
-            a(href="/promote") Promote
-            li.menu-item
-            img(src="img/message.png", alt="Message")
-            a(href="/help") Help
-        .user-info
-          img(src="img/photo.png", alt="User Image")
-          span Evano
-          small Project Manager
+      //- aside.side-menu
+      //-   .logo
+      //-     picture
+      //-      img(src="img/logo.svg", alt="Logo")
+      //-     h4  Dashboard
+      //-     p v.01
+      //-   nav.menu
+      //-     ul.side 
+      //-       li.menu-item
+      //-       img(src="img/key.svg", alt="key")
+      //-       a(href="/dashboard") Dashboard
+      //-       li.menu-item
+      //-       img(src="img/square.svg", alt="Product")
+      //-       a(href="/product") Product
+      //-       img(src="img/right.svg", alt="Product")
+      //-       li.menu-item.active
+      //-       img(src="img/user.svg", alt="Customers")
+      //-       a(href="/customers") Customers
+      //-       img(src="img/right.svg", alt="Product")
+      //-       li.menu-item
+      //-       img(src="img/money.svg", alt="Income")
+      //-       a(href="/income") Income
+      //-       img(src="img/right.svg", alt="Product")
+      //-       li.menu-item
+      //-       img(src="img/discount.svg", alt="Promote")
+      //-       a(href="/promote") Promote
+      //-       img(src="img/right.svg", alt="Product")
+      //-       li.menu-item
+      //-       img(src="img/message.svg", alt="Message")
+      //-       a(href="/help") Help
+      //-       img(src="img/right.svg", alt="Product")
+            
+      //-   .user-info
+      //-     img(src="img/photo.svg", alt="User Image")
+      //-     span Evano
+      //-     small Project Manager
+//- Sidebar
+aside.side-menu
+  .logo
+    picture
+      img(src="img/logo.svg", alt="Logo")
+    h4.dashboard-header Dashboard
+    p.version-info v.01
+
+  nav.menu
+    ul.side
+      li.menu-item
+        img.menu-icon.key(src="img/key.svg", alt="key")
+        a.menu-text(href="/dashboard") Dashboard
+      li.menu-item
+        img.menu-icon(src="img/square.svg", alt="Product")
+        a.menu-text(href="/product") Product
+        img.chevron-right(src="img/right.svg", alt="Product")
+      li.menu-item.active
+        img.menu-icon.(src="img/user.svg", alt="Customers")
+        a.menu-item-active(href="/customers") Customers
+        img.chevron-right-active(src="img/chevron-right-active.svg", alt="Product")
+      li.menu-item
+        img.menu-icon(src="img/money.svg", alt="Income")
+        a.menu-text(href="/income") Income
+        img.chevron-right(src="img/right.svg", alt="Product")
+      li.menu-item
+        img.menu-icon(src="img/discount.svg", alt="Promote")
+        a.menu-text(href="/promote") Promote
+        img.chevron-right(src="img/right.svg", alt="Product")
+      li.menu-item
+        img.menu-icon(src="img/message.svg", alt="Message")
+        a.menu-text(href="/help") Help
+        img.chevron-right(src="img/right.svg", alt="Product")
+
+  .profile-group
+    img.profile-image(src="img/photo.svg", alt="User Image")
+    .profile-info
+      span.name Evano
+      small.role Project Manager
 
       //- Main Content
       main.content

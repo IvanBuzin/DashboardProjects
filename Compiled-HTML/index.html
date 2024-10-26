@@ -5,26 +5,30 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="src/scss/main.scss">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom">
     <body></body>
-    <div class="dashboard">
-      <aside class="sidebar">
-        <div class="logo">
-          <picture><img src="img/logo.png" alt="Logo"></picture><span>Dashboard v.01</span>
-        </div>
-        <nav class="menu">
-          <ul>
-            <li class="menu-item"></li><img src="img/key.png" alt="key"><a href="/dashboard">Dashboard</a>
-            <li class="menu-item"></li><img src="img/key.png" alt="Product"><a href="/product">Product</a>
-            <li class="menu-item active"></li><img src="img/userv.png" alt="Customers"><a href="/customers">Customers</a>
-            <li class="menu-item"></li><img src="img/money.png" alt="Income"><a href="/income">Income</a>
-            <li class="menu-item"></li><img src="img/discount.png" alt="Promote"><a href="/promote">Promote</a>
-            <li class="menu-item"></li><img src="img/message.png" alt="Message"><a href="/help">Help</a>
-          </ul>
-        </nav>
-        <div class="user-info"><img src="img/photo.png" alt="User Image"><span>Evano</span><small>Project Manager</small></div>
-      </aside>
+    <div class="dashboard"></div>
+  </head>
+</html>
+<aside class="side-menu">
+  <div class="logo">
+    <picture><img src="img/logo.svg" alt="Logo"></picture>
+    <h4 class="dashboard-header">Dashboard</h4>
+    <p class="version-info">v.01</p>
+  </div>
+  <nav class="menu">
+    <ul class="side">
+      <li class="menu-item"><img class="menu-icon key" src="img/key.svg" alt="key"><a class="menu-text" href="/dashboard">Dashboard</a></li>
+      <li class="menu-item"><img class="menu-icon" src="img/square.svg" alt="Product"><a class="menu-text" href="/product">Product</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
+      <li class="menu-item active"><img class="menu-icon icon-active" src="img/user.svg" alt="Customers"><a class="menu-item-active" href="/customers">Customers</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
+      <li class="menu-item"><img class="menu-icon" src="img/money.svg" alt="Income"><a class="menu-text" href="/income">Income</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
+      <li class="menu-item"><img class="menu-icon" src="img/discount.svg" alt="Promote"><a class="menu-text" href="/promote">Promote</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
+      <li class="menu-item"><img class="menu-icon" src="img/message.svg" alt="Message"><a class="menu-text" href="/help">Help</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
+    </ul>
+  </nav>
+  <div class="profile-group"><img class="profile-image" src="img/photo.svg" alt="User Image">
+    <div class="profile-info"><span class="name">Evano</span><small class="role">Project Manager</small>
       <main class="content">
         <div class="header">
           <h1>Hello Evano 👋</h1>
@@ -128,5 +132,5 @@
         </div>
       </main>
     </div>
-  </head>
-</html>
+  </div>
+</aside>

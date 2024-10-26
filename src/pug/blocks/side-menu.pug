@@ -1,0 +1,71 @@
+.side-menu
+  //- Заголовок Dashboard
+  .header-group
+    .setting-icon
+      img(src="img/logo.png" alt="Settings")
+    .dashboard-header Dashboard
+
+  //- Версія
+  .version-info v.01
+
+  //- Пункти меню
+  .menu-item
+    //- Пункт меню "Dashboard"
+    .menu-icon
+      img(src="dashboard-icon.svg" alt="Dashboard Icon")
+    .menu-text Dashboard
+    .chevron-right
+      img(src="chevron-right.svg" alt="Chevron Icon")
+
+  .menu-item
+    //- Пункт меню "Product"
+    .menu-icon
+      img(src="product-icon.svg" alt="Product Icon")
+    .menu-text Product
+    .chevron-right
+      img(src="chevron-right.svg" alt="Chevron Icon")
+
+  .menu-item.active-menu-item
+    //- Активний пункт меню "Customers"
+    .menu-icon
+      img(src="customers-icon.svg" alt="Customers Icon")
+    .menu-text.menu-item-active Customers
+    .chevron-right
+      img(src="chevron-right-white.svg" alt="Chevron Icon")
+
+  .menu-item
+    //- Пункт меню "Income"
+    .menu-icon
+      img(src="income-icon.svg" alt="Income Icon")
+    .menu-text Income
+    .chevron-right
+      img(src="chevron-right.svg" alt="Chevron Icon")
+
+  .menu-item
+    //- Пункт меню "Promote"
+    .menu-icon
+      img(src="promote-icon.svg" alt="Promote Icon")
+    .menu-text Promote
+    .chevron-right
+      img(src="chevron-right.svg" alt="Chevron Icon")
+
+  .menu-item
+    //- Пункт меню "Help"
+    .menu-icon
+      img(src="help-icon.svg" alt="Help Icon")
+    .menu-text Help
+    .chevron-right
+      img(src="chevron-right.svg" alt="Chevron Icon")
+
+  //- Інформація про користувача
+  .profile-group
+    .profile-image
+      img(src="profile-image.png" alt="Profile Image")
+    .profile-info
+      .name Evano
+      .role Project Manager
+if data && data.length
+  each item in data
+    div= item.name
+else
+  div No data available
