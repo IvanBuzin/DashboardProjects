@@ -14,7 +14,7 @@ html(lang="en")
       aside.side-menu
         .logo
         picture
-        img(src="img/logo.svg", alt="Logo")
+        img.logotype(src="img/logo.svg", alt="Logo")
         h1.dashboard-header Dashboard
         p.version-info v.01
 
@@ -45,19 +45,19 @@ html(lang="en")
               img.chevron-right(src="img/right.svg", alt="Product")
 
     .profile-group
-    img.profile-image(src="img/photo.svg", alt="User Image")
-    .profile-info
-    span.name Evano
-    small.role Project Manager
+      img.profile-image(src="img/photo.svg", alt="User Image")
+      .profile-info
+        span.name Evano
+        small.role Project Manager
 
-//- Main Content
-main.content
-                .header
-                h1 Hello Evano 👋
-                .customers
-                .customers-header
-                h2 All Customers
-                a.active-content(href="#" role="button") Active Members
+      //- Main Content
+    main.content
+      .header
+      h1 Hello Evano 👋
+      .customers
+      .customers-header
+      h2 All Customers
+      a.active-content(href="#" role="button") Active Members
                           //- Search Input
                           .search-bar
                           input(type="text" placeholder="Search")
