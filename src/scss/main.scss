@@ -1,9 +1,4 @@
-// @import url("./blocks/_table.scss");
-@import "./blocks/side-menu.scss";
-// @import url("./blocks/_header.scss");
-// @import url("./base/_fonts.scss");
-// @import url("./base/_reset.scss");
-// @import url("./base/_variables.scss");
+@use "./blocks/side-menu.scss";
 
 :root {
   --primary-text-color: #292d32;

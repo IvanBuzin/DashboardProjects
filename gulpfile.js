@@ -26,7 +26,7 @@ function compilePug() {
 function compileScss() {
   return gulp
     .src("src/scss/**/*.scss")
-    .pipe(sass().on("error", sass.logError))
+    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(gulp.dest("Compiled-HTML/css"))
     .pipe(browserSync.stream());
 }
@@ -42,13 +42,14 @@ function serve() {
     server: {
       baseDir: "./Compiled-HTML",
     },
+    open: false,
   });
   gulp.watch("src/pug/**/*.pug", compilePug);
-  gulp.watch("src/scss/**/*.scss", gulp.series(compileScss));
+  gulp.watch("src/scss/**/*.scss", compileScss);
   gulp
     .watch("src/img/**/*", gulp.series("images"))
     .on("change", browserSync.reload);
-  gulp.watch("./Compiled-HTML/*.html").on("change", browserSync.reload);
+  gulp.watch("Compiled-HTML/*.html").on("change", browserSync.reload);
 }
 
 exports.default = gulp.series(compilePug, compileScss, "images", serve);
