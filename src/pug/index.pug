@@ -15,7 +15,7 @@ html(lang="en")
         .logo
         picture
         img(src="img/logo.svg", alt="Logo")
-        h4.dashboard-header Dashboard
+        h1.dashboard-header Dashboard
         p.version-info v.01
 
         nav.menu
@@ -133,6 +133,7 @@ html(lang="en")
                 //- Pagination
                 .pagination
                   span Showing data 1 to 8 of 256K entries
+                  img.right-active(src="img/active.svg", alt="R")
                   ul.pagination-list(aria-label="Pagination")
                     li.page-item
                       a(href="#") 1
@@ -146,5 +147,6 @@ html(lang="en")
                       a(href="#") ...
                     li.page-item
                       a(href="#") 40
+                  img.l-active(src="img/active.svg", alt="l")
         
             

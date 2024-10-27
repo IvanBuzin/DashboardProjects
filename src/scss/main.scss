@@ -1,9 +1,8 @@
-@import url("./blocks/_table.scss");
-@import url("./blocks/_side-menu.scss");
-@import url("./blocks/_header.scss");
-@import url("./base/_fonts.scss");
-@import url("./base/_reset.scss");
-@import url("./base/_variables.scss");
+// @import url("./blocks/_table.scss");
+@import "src/scss/blocks/_side-menu.scss"; // @import url("./blocks/_header.scss");
+// @import url("./base/_fonts.scss");
+// @import url("./base/_reset.scss");
+// @import url("./base/_variables.scss");
 
 :root {
   --primary-text-color: #292d32;
@@ -12,21 +11,15 @@
   --inactive-color: #df0404;
   --background-color: #ffffff;
 }
-ul {
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+ul ol {
   list-style-type: none;
 }
-.side {
-  width: 231px;
-  height: 344px;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 139px;
-  left: 39px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
+
 h1,
 h2,
 h3,
@@ -35,64 +28,6 @@ p {
   margin: 0;
 }
 
-.logo {
-  position: absolute;
-  width: 37px;
-  height: 37px;
-  left: 28px;
-  top: 37px;
-  display: flex;
-  flex-direction: row;
-}
-h4 {
-  position: absolute;
-  width: 150px;
-  height: 39px;
-  left: 36px;
-  // top: 36px;
-
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 26px;
-  line-height: 39px;
-  /* identical to box height */
-  letter-spacing: 0.01em;
-
-  color: #000000;
-}
-p {
-  /* v.01 */
-
-  position: absolute;
-  width: 18px;
-  height: 15px;
-  left: 164px;
-  top: 24px;
-
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 15px;
-  /* identical to box height */
-  letter-spacing: -0.01em;
-
-  color: #838383;
-}
-
-// .menu-item {
-//   display: flex;
-//   flex-direction: row;
-//   width: 250px;
-//   height: 24px;
-// }
-
-body {
-  font-family: "Poppins", sans-serif;
-  color: var(--primary-text-color);
-  margin: 0;
-}
 .dashboard {
   display: flex;
   flex-direction: row;
@@ -100,33 +35,6 @@ body {
   height: 1198px;
 }
 
-// .side-menu {
-//   position: absolute;
-//   width: 306px;
-//   height: 1198px;
-//   left: 0px;
-//   top: 0px;
-//   background: #ffffff;
-//   box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
-// }
-
-// .active-menu-item {
-//   position: absolute;
-//   width: 250px;
-//   height: 46px;
-//   left: 28px;
-//   top: 256px;
-//   background: #5932ea;
-//   border-radius: 8px;
-// }
-
-section {
-  padding: 10px 0;
-}
-.container {
-  margin: 0 auto;
-  padding: 0 20px;
-}
 @media (min-width: 375px) {
   .container {
     max-width: 335px;
@@ -153,203 +61,11 @@ section {
   gap: 300px;
 }
 
-/* Side Menu */
-.side-menu {
-  position: absolute;
-  width: 306px;
-  height: 1198px;
-  left: 0px;
-  top: 0px;
-  background: #ffffff;
-  box-shadow: 0px 10px 60px rgba(226, 236, 249, 0.5);
-}
-.menu-item {
-  align-items: center;
-  display: flex;
-  gap: 12px;
-}
-/* Rectangle 33 - Active Menu Item Background */
-.side-menu .active-menu-item {
-  // color: #ffffff;
-  // position: absolute;
-  // width: 250px;
-  // height: 46px;
-  // left: 28px;
-  // top: 256px;
-  // background: #5932ea;
-  // border-radius: 8px;
-}
-
-/* List Menu Icon (Example for "Dashboard") */
-.side-menu .menu-icon {
-  // position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 39px;
-  top: 139px;
-}
-
-/* Vector - for Icons */
-.vector {
-  position: absolute;
-  border: 1.5px solid #9197b3;
-}
-
-/* Dashboard Text */
-.side-menu .menu-text {
-  // position: absolute;
-  width: 78px;
-  height: 21px;
-  left: 77px;
-  top: 140px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.01em;
-  color: #9197b3;
-}
-
-/* Product, Income, etc. Text (Other Menu Items) */
-.side-menu .menu-item-text {
-  // position: absolute;
-  width: 54px;
-  height: 21px;
-  left: 77px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.01em;
-  color: #9197b3;
-}
-.menu-item-active {
-  color: #ffffff;
-}
-.right-active {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 212px;
-  color: #ffffff;
-}
-/* Active Menu Text (Example for "Customers") */
-.side-menu .active {
-  background: #5932ea;
-  border-radius: 8px;
-  padding: 10px 9px;
-  width: 231px;
-  margin-left: -10px;
-}
-
-/* Chevron Right Icon for Menu Items */
-.side-menu .chevron-right {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 212px;
-}
-
-/* Group for Profile Information */
-.side-menu .profile-group {
-  // position: absolute;
-  width: 155px;
-  height: 42px;
-  left: 28px;
-  top: 1080px;
-  display: flex;
-  gap: 12px;
-}
-
-/* Profile Image (Ellipse) */
-.side-menu .profile-image {
-  position: absolute;
-  width: 42px;
-  height: 42px;
-  left: 28px;
-  top: 1080px;
-  // background: url(".png");
-}
-
-/* Profile Name and Role */
-.side-menu .profile-info {
-  position: absolute;
-  width: 101px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  left: 82px;
-  top: 1082px;
-}
-
-.side-menu .profile-info .name {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  height: 21px;
-  color: #000000;
-}
-
-.side-menu .profile-info .role {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  color: #757575;
-}
-
-/* Dashboard Header */
-.side-menu .header-group {
-  position: absolute;
-  width: 195px;
-  height: 39px;
-  left: 28px;
-  top: 36px;
-}
-
-.side-menu .header-group .dashboard-header {
-  position: absolute;
-  width: 150px;
-  height: 39px;
-  left: 73px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 26px;
-  color: #000000;
-}
-
-/* Setting Icon */
-.side-menu .setting-icon {
-  position: absolute;
-  width: 37px;
-  height: 37px;
-  left: 28px;
-  top: 37px;
-}
-
-/* Version Info */
-.side-menu .version-info {
-  position: absolute;
-  width: 18px;
-  height: 15px;
-  left: 168px;
-  top: 16px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  color: #838383;
-}
-
 .content {
   position: absolute;
-  width: 968px;
-  height: 812px;
-  left: 377px;
+  width: 1001px;
+  height: 927px;
+  left: 270px;
   top: -1039px;
 
   /* Rectangle 30 */
@@ -358,5 +74,141 @@ section {
   border-radius: 30px;
 }
 .customers {
-  margin-top: 50px;
+  margin-top: 60px;
+}
+
+/*new*/
+
+.main-content {
+  padding: 20px;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.customers {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.customers-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.customers-header a.active {
+  color: #3ab8ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  width: 250px;
+}
+
+.search-bar button {
+  background-color: #3ab8ff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #2a9ada;
+}
+
+table.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.customers-table th,
+table.customers-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+table.customers-table th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #666;
+}
+
+table.customers-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status.active {
+  background: #def7ec;
+  color: #34d399;
+}
+
+.status.inactive {
+  background: #fee2e2;
+  color: #f87171;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.pagination-list {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-list a {
+  display: block;
+  padding: 5px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  color: #3ab8ff;
+  text-decoration: none;
+}
+
+.pagination-list a:hover,
+.pagination-list a:focus {
+  background: #3ab8ff;
+  color: #ffffff;
+}
+
+.pagination-list .page-item a.active {
+  background: #3ab8ff;
+  color: #ffffff;
 }
