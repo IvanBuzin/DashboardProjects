@@ -1,5 +1,6 @@
 // @import url("./blocks/_table.scss");
-@import "src/scss/blocks/_side-menu.scss"; // @import url("./blocks/_header.scss");
+@import "./blocks/side-menu.scss";
+// @import url("./blocks/_header.scss");
 // @import url("./base/_fonts.scss");
 // @import url("./base/_reset.scss");
 // @import url("./base/_variables.scss");
@@ -16,8 +17,9 @@ body {
   margin: 0;
 }
 
-ul ol {
+ul ol a {
   list-style-type: none;
+  text-decoration: none;
 }
 
 h1,
@@ -26,6 +28,7 @@ h3,
 h4,
 p {
   margin: 0;
+  padding: 0;
 }
 
 .dashboard {
@@ -53,12 +56,6 @@ p {
   .container {
     max-width: 1408px;
   }
-}
-
-.customers-header {
-  display: flex;
-  flex-direction: row;
-  gap: 300px;
 }
 
 .content {
@@ -91,14 +88,13 @@ p {
 .customers {
   background: #ffffff;
   border-radius: 10px;
-  padding: 20px;
+  padding: 38px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .customers-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
@@ -108,7 +104,7 @@ p {
   color: #333;
 }
 
-.customers-header a.active {
+.customers-header a.active-content {
   color: #3ab8ff;
   text-decoration: none;
   font-weight: 500;

@@ -28,7 +28,7 @@ html(lang="en")
               a.menu-text(href="/product") Product
               img.chevron-right(src="img/right.svg", alt="Product")
             li.menu-item.active
-              img.menu-icon.(src="img/user.svg", alt="Customers")
+              img.menu-icon(src="img/user.svg", alt="Customers")
               a.menu-item-active(href="/customers") Customers
               img.right-active(src="img/active.svg", alt="Product")
             li.menu-item
@@ -50,103 +50,102 @@ html(lang="en")
     span.name Evano
     small.role Project Manager
 
-      //- Main Content
-    main.content
-      .header
-      h1 Hello Evano 👋
-      .customers
-      .customers-header
+//- Main Content
+main.content
+  .header
+    h1 Hello Evano 👋
+  .customers
+    .customers-header
       h2 All Customers
-      a.active(href="#" role="button") Active Members
-                  //- Search Input
-                  .search-bar
-                    input(type="text" placeholder="Search")
-                    button(type="button") Search 
-                //- Table
-                table.customers-table
-                  thead
-                    tr
-                      th Customer Name
-                      th Company
-                      th Phone Number
-                      th Email
-                      th Country
-                      th Status
-                  tbody
-                    tr
-                      td Jane Cooper
-                      td Microsoft
-                      td (225) 555-0118
-                      td jane@microsoft.com
-                      td United States
-                      td.status.active Active
-                    tr
-                      td Floyd Miles
-                      td Yahoo
-                      td (205) 555-0100
-                      td floyd@yahoo.com
-                      td Kiribati
-                      td.status.inactive Inactive
-                    tr 
-                      td Ronald Richards
-                      td Adobe
-                      td (302) 555-0107
-                      td ronald@adobe.com
-                      td Israel
-                      td.status.inactive Inactive
-                    tr 
-                      td Marvin McKinney
-                      td Tesla
-                      td (252) 555-0126
-                      td marvin@tesla.com
-                      td Iran
-                      td.status.active Active
-                    tr 
-                      td Jerome Bell
-                      td Google
-                      td (629) 555-0129
-                      td jerome@google.com
-                      td Réunion
-                      td.status.active Active
-                    tr 
-                      td Kathryn Murphy
-                      td Microsoft
-                      td (406) 555-0120
-                      td kathryn@microsoft.com
-                      td Curaçao
-                      td.status.active Active
-                    tr 
-                      td Jacob Jones
-                      td Yahoo
-                      td (208) 555-0112
-                      td jacob@yahoo.com
-                      td Brazil
-                      td.status.active Active
-                    tr 
-                      td Kristin Watson
-                      td Facebook
-                      td (704) 555-0127
-                      td kristin@facebook.com
-                      td Åland Islands
-                      td.status.inactive Inactive
-                    //- Add more rows as needed
-                //- Pagination
-                .pagination
-                  span Showing data 1 to 8 of 256K entries
-                  img.right-active(src="img/active.svg", alt="R")
-                  ul.pagination-list(aria-label="Pagination")
-                    li.page-item
-                      a(href="#") 1
-                    li.page-item
-                      a(href="#") 2
-                    li.page-item
-                      a(href="#") 3
-                    li.page-item
-                      a(href="#") 4
-                    li.page-item
-                      a(href="#") ...
-                    li.page-item
-                      a(href="#") 40
-                  img.l-active(src="img/active.svg", alt="l")
-        
-            
+      a.active-content(href="#" role="button") Active Members
+      //- Search Input
+      .search-bar
+        input(type="text" placeholder="Search")
+        button(type="button") Search        
+      //- Table
+      table.customers-table
+        thead
+          tr
+            th Customer Name
+            th Company
+            th Phone Number
+            th Email
+            th Country
+            th Status
+        tbody
+          tr
+            td Jane Cooper
+            td Microsoft
+            td (225) 555-0118
+            td jane@microsoft.com
+            td United States
+            td.status.active Active
+          tr
+            td Floyd Miles
+            td Yahoo
+            td (205) 555-0100
+            td floyd@yahoo.com
+            td Kiribati
+            td.status.inactive Inactive
+          tr 
+            td Ronald Richards
+            td Adobe
+            td (302) 555-0107
+            td ronald@adobe.com
+            td Israel
+            td.status.inactive Inactive
+          tr 
+            td Marvin McKinney
+            td Tesla
+            td (252) 555-0126
+            td marvin@tesla.com
+            td Iran
+            td.status.active Active
+          tr 
+            td Jerome Bell
+              td Google
+              td (629) 555-0129
+              td jerome@google.com
+              td Réunion
+              td.status.active Active
+            tr 
+              td Kathryn Murphy
+              td Microsoft
+              td (406) 555-0120
+              td kathryn@microsoft.com
+              td Curaçao
+              td.status.active Active
+            tr 
+              td Jacob Jones
+              td Yahoo
+              td (208) 555-0112
+              td jacob@yahoo.com
+              td Brazil
+              td.status.active Active
+            tr 
+              td Kristin Watson
+              td Facebook
+              td (704) 555-0127
+              td kristin@facebook.com
+              td Åland Islands
+              td.status.inactive Inactive
+          //- Add more rows as needed
+      //- Pagination
+      .pagination
+        span Showing data 1 to 8 of 256K entries
+        img.right-active(src="img/active.svg", alt="R")
+        ul.pagination-list(aria-label="Pagination")
+          li.page-item
+            a(href="#") 1
+          li.page-item
+            a(href="#") 2
+          li.page-item
+            a(href="#") 3
+          li.page-item
+            a(href="#") 4
+          li.page-item
+            a(href="#") ...
+          li.page-item
+            a(href="#") 40
+        img.l-active(src="img/active.svg", alt="l")
+
