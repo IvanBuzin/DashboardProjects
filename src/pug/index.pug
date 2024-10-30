@@ -134,10 +134,11 @@ html(lang="en")
                           //- Pagination
                           .pagination
                             span.pagination-text Showing data 1 to 8 of 256K entries
-                            .left-active
-                            img(src="img/l.svg", alt="L")
-                            .pagination-list
-                              ul(aria-label="Pagination")
+                            .pagination-content
+                            img.left-active(src="img/l.svg", alt="L")
+                              ul
+                         
+                             
                                 li.page-item
                                   a(href="#") 1
                                 li.page-item
@@ -149,6 +150,5 @@ html(lang="en")
                                 li.page-item
                                   a(href="#") ...
                                 li.page-item
-                                  a(href="#") 40
-                            .right-active      
-                            img(src="img/r.svg", alt="R")
+                                  a(href="#") 40                                                  
+                            img.right-active(src="img/r.svg", alt="R")

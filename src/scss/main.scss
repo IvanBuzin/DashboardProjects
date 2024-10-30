@@ -230,13 +230,7 @@ table.customers-table tbody tr:hover {
   margin-top: 20px;
 }
 
-// .pagination-list {
-//   display: flex;
-//   gap: 6px;
-//   list-style: none;
-//   padding: 0;
-//   margin: 0;
-// }
+//////////////////////////////////////////////
 
 .page-item a {
   display: flex;
@@ -271,15 +265,19 @@ table.customers-table tbody tr:hover {
 }
 
 .pagination {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  // gap: 10px;
   padding: 10px 0;
   color: #666;
   font-size: 14px;
   position: absolute;
   top: 700px;
+}
+.pagination-content {
+  display: flex;
+  flex-direction: row;
 }
 .pagination-text {
   font-family: "Poppins", sans-serif;
@@ -294,6 +292,7 @@ table.customers-table tbody tr:hover {
 }
 .pagination-list {
   display: flex;
+  flex-direction: row;
   gap: 6px;
   list-style: none;
   padding: 0;
