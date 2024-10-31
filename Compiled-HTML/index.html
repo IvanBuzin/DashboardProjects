@@ -18,7 +18,7 @@
           <ul class="side">
             <li class="menu-item"><img class="menu-icon key" src="img/key.svg" alt="key"><a class="menu-text" href="/dashboard">Dashboard</a></li>
             <li class="menu-item"><img class="menu-icon" src="img/square.svg" alt="Product"><a class="menu-text" href="/product">Product</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
-            <li class="menu-item active"><img class="menu-icon" src="img/user.svg" alt="Customers"><a class="menu-item-active" href="/customers">Customers</a><img class="right-active" src="img/active.svg" alt="Product"></li>
+            <li class="menu-item active"><img class="menu-icon" src="img/user.svg" alt="Customers"><a class="menu-item-active" href="/customers">Customers</a><img class="side-right-active" src="img/active.svg" alt="Product"></li>
             <li class="menu-item"><img class="menu-icon" src="img/money.svg" alt="Income"><a class="menu-text" href="/income">Income</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
             <li class="menu-item"><img class="menu-icon" src="img/discount.svg" alt="Promote"><a class="menu-text" href="/promote">Promote</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
             <li class="menu-item"><img class="menu-icon" src="img/message.svg" alt="Message"><a class="menu-text" href="/help">Help</a><img class="chevron-right" src="img/right.svg" alt="Product"></li>
@@ -114,19 +114,16 @@
               </tr>
             </tbody>
           </table>
-          <div class="pagination"><span class="pagination-text">Showing data 1 to 8 of 256K entries</span>
-            <div class="pagination-block"><img class="left-active" src="img/l.svg" alt="L">
-              <ul>
-                <li class="page-item"><a href="#">1</a></li>
-                <li class="page-item"><a href="#">2</a></li>
-                <li class="page-item"><a href="#">3</a></li>
-                <li class="page-item"><a href="#">4</a></li>
-                <li class="page-item"><a href="#">...</a></li>
-                <li class="page-item"><a href="#">40                                                  </a></li>
-              </ul><img class="right-active" src="img/r.svg" alt="R">
-            </div>
-          </div></a>
+          <div class="pagination"></div></a>
       </div>
     </main>
-  </head>
+  </head><span class="pagination-text">Showing data 1 to 8 of 256K entries</span><img class="left-active" src="img/l.svg" alt="Previous page">
+  <ul class="pagination-list" aria-label="Pagination">
+    <li class="page-item active"><a href="#">1</a></li>
+    <li class="page-item"><a href="#">2</a></li>
+    <li class="page-item"><a href="#">3</a></li>
+    <li class="page-item"><a href="#">4</a></li>
+    <li class="page-item"><a href="#">...</a></li>
+    <li class="page-item"><a href="#">40</a></li>
+  </ul><img class="pagination-right-active" src="img/r.svg" alt="Next page">
 </html>

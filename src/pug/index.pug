@@ -30,7 +30,7 @@ html(lang="en")
             li.menu-item.active
               img.menu-icon(src="img/user.svg", alt="Customers")
               a.menu-item-active(href="/customers") Customers
-              img.right-active(src="img/active.svg", alt="Product")
+              img.side-right-active(src="img/active.svg", alt="Product")
             li.menu-item
               img.menu-icon(src="img/money.svg", alt="Income")
               a.menu-text(href="/income") Income
@@ -133,22 +133,19 @@ html(lang="en")
                               //- Add more rows as needed
                           //- Pagination
                           .pagination
-                            span.pagination-text Showing data 1 to 8 of 256K entries
-                            .pagination-content
-                            img.left-active(src="img/l.svg", alt="L")
-                              ul
-                         
-                             
-                                li.page-item
-                                  a(href="#") 1
-                                li.page-item
-                                  a(href="#") 2
-                                li.page-item
-                                   a(href="#") 3
-                                li.page-item
-                                   a(href="#") 4
-                                li.page-item
-                                  a(href="#") ...
-                                li.page-item
-                                  a(href="#") 40                                                  
-                            img.right-active(src="img/r.svg", alt="R")
+  span.pagination-text Showing data 1 to 8 of 256K entries
+  img.left-active(src="img/l.svg", alt="Previous page") 
+  ul.pagination-list(aria-label="Pagination")
+    li.page-item.active
+      a(href="#") 1
+    li.page-item
+      a(href="#") 2
+    li.page-item
+      a(href="#") 3
+    li.page-item
+      a(href="#") 4
+    li.page-item
+      a(href="#") ...
+    li.page-item
+      a(href="#") 40
+  img.pagination-right-active(src="img/r.svg", alt="Next page") 

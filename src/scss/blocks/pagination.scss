@@ -1,0 +1,128 @@
+.page-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #404b52;
+  text-decoration: none;
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+}
+
+.page-item a:hover {
+  background: #e0e0e0;
+}
+
+.left-active,
+.right-active {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.left-active:hover,
+.right-active:hover {
+  opacity: 0.7;
+}
+
+.pagination {
+  padding: 10px 0;
+  color: #666;
+  font-size: 14px;
+  position: absolute;
+  top: 700px;
+}
+.pagination-content {
+  display: flex;
+  flex-direction: row;
+}
+.pagination-text {
+  position: absolute;
+  width: 243px;
+  height: 21px;
+  left: 415px;
+  top: 878px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  letter-spacing: -0.01em;
+
+  color: #b5b7c0;
+}
+.pagination-list {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  width: 195px;
+  height: 24px;
+  left: 1074px;
+  top: 876px;
+  color: #b5b7c0;
+}
+
+.left-active {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 9px;
+  gap: 10px;
+
+  position: absolute;
+  width: 26px;
+  height: 24px;
+  left: 1034px;
+  top: 876px;
+
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+}
+.pagination-right-active {
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 9px;
+  gap: 10px;
+
+  position: absolute;
+  width: 26px;
+  height: 24px;
+  left: 1279px;
+  top: 876px;
+
+  background: #f5f5f5;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+}
+
+.pagination-list a:hover,
+.pagination-list a:focus {
+  background: #5932ea;
+  color: #ffffff;
+}
+
+.pagination-list .page-item a.active {
+  background: #5932ea;
+  color: #ffffff;
+}
