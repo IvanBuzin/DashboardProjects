@@ -133,10 +133,10 @@ html(lang="en")
                               //- Add more rows as needed
                           //- Pagination
                           .pagination
-  span.pagination-text Showing data 1 to 8 of 256K entries
-  img.left-active(src="img/l.svg", alt="Previous page") 
-  ul.pagination-list(aria-label="Pagination")
-    li.page-item.active
+  #pagination-info.pagination-text Showing data 1 to 8 of 256K entries
+  img#prev-page.left-active(src="img/l.svg", alt="Previous page") 
+  ul#pagination-list.pagination-list(aria-label="Pagination")
+    li.page-item
       a(href="#") 1
     li.page-item
       a(href="#") 2
@@ -148,4 +148,4 @@ html(lang="en")
       a(href="#") ...
     li.page-item
       a(href="#") 40
-  img.pagination-right-active(src="img/r.svg", alt="Next page") 
+  img#next-page.pagination-right-active(src="img/r.svg", alt="Next page") 

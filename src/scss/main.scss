@@ -32,13 +32,6 @@ p {
   padding: 0;
 }
 
-.dashboard {
-  display: flex;
-  flex-direction: row;
-  width: 1440px;
-  height: 1198px;
-}
-
 @media (min-width: 375px) {
   .container {
     max-width: 335px;
