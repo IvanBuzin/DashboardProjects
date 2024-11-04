@@ -1,7 +1,7 @@
 // Анімація появи таблиці при завантаженні сторінки:
 document.addEventListener("DOMContentLoaded", function () {
   // Знайти таблицю за класом
-  const table = document.querySelector(".customer-table");
+  const table = document.querySelector(".customers-table");
 
   // Додати клас з анімацією
   table.classList.add("table-animate");

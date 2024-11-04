@@ -7,17 +7,7 @@ const browserSync = require("browser-sync").create();
 function compilePug() {
   return gulp
     .src("src/pug/**/*.pug")
-    .pipe(
-      pug({
-        pretty: true,
-        locals: {
-          data: [
-            { id: 1, name: "Jane Cooper", email: "jane@microsoft.com" },
-            { id: 2, name: "Floyd Miles", email: "floyd@yahoo.com" },
-          ],
-        },
-      })
-    )
+    .pipe(pug())
     .pipe(gulp.dest("Compiled-HTML"))
     .pipe(browserSync.stream());
 }
@@ -31,10 +21,21 @@ function compileScss() {
     .pipe(browserSync.stream());
 }
 
+// Копіювання JavaScript
+function copyJs() {
+  return gulp
+    .src("src/public/**/*.js")
+    .pipe(gulp.dest("Compiled-HTML/js"))
+    .pipe(browserSync.stream());
+}
+
 // Копіювання зображень
-gulp.task("images", function () {
-  return gulp.src("src/img/**/*").pipe(gulp.dest("Compiled-HTML/img"));
-});
+function copyImages() {
+  return gulp
+    .src("src/img/**/*")
+    .pipe(gulp.dest("Compiled-HTML/img"))
+    .pipe(browserSync.stream());
+}
 
 // Live Server для автоматичного оновлення браузера
 function serve() {
@@ -42,14 +43,27 @@ function serve() {
     server: {
       baseDir: "./Compiled-HTML",
     },
+    port: 3012,
     open: false,
   });
+
   gulp.watch("src/pug/**/*.pug", compilePug);
   gulp.watch("src/scss/**/*.scss", compileScss);
-  gulp
-    .watch("src/img/**/*", gulp.series("images"))
-    .on("change", browserSync.reload);
+  gulp.watch("src/public/**/*.js", copyJs);
+  gulp.watch("src/img/**/*", copyImages);
   gulp.watch("Compiled-HTML/*.html").on("change", browserSync.reload);
 }
 
-exports.default = gulp.series(compilePug, compileScss, "images", serve);
+// Експорт завдань для Gulp
+exports.compilePug = compilePug;
+exports.compileScss = compileScss;
+exports.copyJs = copyJs;
+exports.copyImages = copyImages;
+exports.serve = serve;
+exports.default = gulp.series(
+  compilePug,
+  compileScss,
+  copyJs,
+  copyImages,
+  serve
+);
