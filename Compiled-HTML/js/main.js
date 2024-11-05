@@ -1,10 +1,10 @@
-import "./js/animateNewRows";
-import "./js/animateTable";
-import "./js/animateNewRows";
-import "./js/newCustomer";
-import "./js/app";
-import "./js/pagination";
-import "./js/server";
+import "./js/animateNewRows.js";
+import "./js/animateTable.js";
+import "./js/animateNewRows.js";
+import "./js/newCustomer.js";
+import "./js/app.js";
+import "./js/pagination.js";
+import "./js/server.js";
 
 app.use((req, res, next) => {
   res.setHeader(

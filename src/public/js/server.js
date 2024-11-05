@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 3012; // Коригування порту
+const PORT = 3010; // Коригування порту
 
 // Налаштування статичного каталогу
 app.use(express.static("public"));
@@ -23,7 +23,7 @@ function updatePagination(totalEntries) {
 }
 
 // Виконання fetch-запиту
-fetch("http://localhost:3012/api/entries/count")
+fetch("http://localhost:3010/api/entries/count")
   .then((response) => response.json())
   .then((data) => {
     updatePagination(data.total);

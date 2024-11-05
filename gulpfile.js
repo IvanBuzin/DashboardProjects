@@ -43,7 +43,7 @@ function serve() {
     server: {
       baseDir: "./Compiled-HTML",
     },
-    port: 3012,
+    port: 3010,
     open: false,
   });
 
