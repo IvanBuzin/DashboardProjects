@@ -1,31 +1,18 @@
-const express = require("express");
+import express from "express";
+import path from "path";
+
 const app = express();
-const PORT = 3010; // Коригування порту
 
-// Налаштування статичного каталогу
-app.use(express.static("public"));
+// Налаштування статичної папки для публічних файлів
+app.use(express.static(path.join(__dirname, "public")));
 
-// Маршрут для отримання загальної кількості записів
-app.get("/api/entries/count", (req, res) => {
-  const totalEntries = 256000;
-  res.json({ total: totalEntries });
+// Маршрут для завантаження даних про клієнтів
+app.get("/json/cost.json", (req, res) => {
+  // Відправка JSON-файлу клієнту
+  res.sendFile(path.join(__dirname, "public", "customers.json"));
 });
 
-// Запуск сервера
+const PORT = process.env.PORT || 3018;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-// Функція для оновлення пагінації
-function updatePagination(totalEntries) {
-  console.log("Total Entries:", totalEntries);
-  // Додайте вашу логіку для оновлення елементів пагінації
-}
-
-// Виконання fetch-запиту
-fetch("http://localhost:3010/api/entries/count")
-  .then((response) => response.json())
-  .then((data) => {
-    updatePagination(data.total);
-  })
-  .catch((error) => console.error("Помилка:", error));

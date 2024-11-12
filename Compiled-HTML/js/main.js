@@ -1,42 +1,128 @@
-import "./js/animateNewRows.js";
-import "./js/animateTable.js";
-import "./js/animateNewRows.js";
-import "./js/newCustomer.js";
-import "./js/app.js";
-import "./js/pagination.js";
-import "./js/server.js";
+document.addEventListener("DOMContentLoaded", () => {
+  // Перевірка наявності елементів
+  const paginationInfo = document.getElementById("pagination-info");
+  const paginationList = document.getElementById("pagination-list");
+  const prevPageBtn = document.getElementById("prev-page");
+  const nextPageBtn = document.getElementById("next-page");
+  const entriesContainer = document.getElementById("entries-container");
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'"
-  );
-  next();
-});
-
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message === "someMessage") {
-    setTimeout(() => {
-      sendResponse({ result: "response" });
-    }, 1000);
-    return true;
+  // Перевірка, чи всі елементи знайдені на сторінці
+  if (
+    !paginationInfo ||
+    !paginationList ||
+    !prevPageBtn ||
+    !nextPageBtn ||
+    !entriesContainer
+  ) {
+    console.error("Не знайдені деякі елементи DOM. Перевірте HTML структуру.");
+    return; // Якщо хоча б один елемент не знайдений, зупиняємо виконання скрипта
   }
-});
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("Message received:", message);
+  // Початкові значення
+  let currentPage = 1; // Поточна сторінка
+  const recordsPerPage = 8; // Кількість записів на сторінку
 
-  if (message.action === "getData") {
-    fetchData()
+  // Функція для оновлення пагінації на основі загальної кількості записів
+  function updatePagination(totalEntries) {
+    const totalPages = Math.ceil(totalEntries / recordsPerPage); // Загальна кількість сторінок
+
+    // Оновлення інформації про пагінацію
+    paginationInfo.textContent = `Показано дані з ${
+      (currentPage - 1) * recordsPerPage + 1
+    } по ${Math.min(
+      currentPage * recordsPerPage,
+      totalEntries
+    )} з ${totalEntries} записів`;
+
+    // Оновлення списку сторінок
+    paginationList.innerHTML = ""; // Очищення списку пагінації
+    for (let i = 1; i <= totalPages; i++) {
+      const pageItem = document.createElement("li");
+      pageItem.classList.add("page-item");
+
+      const pageLink = document.createElement("a");
+      pageLink.href = "#";
+      pageLink.textContent = i;
+      pageLink.dataset.page = i; // Додаємо атрибут data-page для ідентифікації сторінки
+
+      // Додаємо обробник події на клік для переходу на вибрану сторінку
+      pageLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        currentPage = i; // Оновлюємо поточну сторінку
+        fetchAndDisplayEntries(); // Завантажуємо записи для нової сторінки
+      });
+
+      pageItem.appendChild(pageLink);
+      paginationList.appendChild(pageItem);
+    }
+
+    // Умови активації/деактивації кнопок пагінації
+    prevPageBtn.disabled = currentPage === 1; // Дизейбл кнопки "Попередня" на першій сторінці
+    nextPageBtn.disabled = currentPage === totalPages; // Дизейбл кнопки "Наступна" на останній сторінці
+  }
+
+  // Функція для отримання записів для поточної сторінки
+  function fetchAndDisplayEntries() {
+    // Запит на сервер для отримання записів для поточної сторінки
+    fetch(`/json/cost.json?page=${currentPage}&limit=${recordsPerPage}`)
+      .then((response) => response.json())
       .then((data) => {
-        sendResponse({ data });
+        // Перевірка на наявність даних у відповіді
+        if (!data || !data.totalRecords || !data.records) {
+          throw new Error("Невірний формат даних");
+        }
+        updatePagination(data.totalRecords); // Оновлюємо пагінацію
+        displayEntries(data.records); // Виводимо записи на сторінці
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
-        sendResponse({ error: "Failed to get data" });
+        console.error("Помилка при завантаженні даних:", error);
+        entriesContainer.innerHTML = "Не вдалося завантажити дані.";
       });
-    return true;
   }
 
-  return false;
+  // Функція для відображення записів на сторінці
+  function displayEntries(entries) {
+    entriesContainer.innerHTML = ""; // Очищаємо контейнер записів
+
+    // Якщо записи не знайдені або масив порожній
+    if (!Array.isArray(entries) || entries.length === 0) {
+      entriesContainer.textContent = "Немає записів для відображення";
+      return;
+    }
+
+    // Виводимо кожен запис
+    entries.forEach((entry) => {
+      const entryDiv = document.createElement("div");
+      entryDiv.classList.add("entry");
+
+      // Виводимо дані з запису (замінити поля відповідно до JSON)
+      entryDiv.innerHTML = `
+        <p><strong>Customer Name:</strong> ${entry.CustomerName}</p>
+        <p><strong>Company:</strong> ${entry.Company}</p>
+        <p><strong>Phone:</strong> ${entry.PhoneNumber}</p>
+        <p><strong>Email:</strong> ${entry.Email}</p>
+        <p><strong>Country:</strong> ${entry.Country}</p>
+        <p><strong>Status:</strong> ${entry.Status}</p>
+      `;
+
+      // Додаємо запис до контейнера
+      entriesContainer.appendChild(entryDiv);
+    });
+  }
+
+  // Обробники подій для кнопок пагінації
+  prevPageBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--; // Перехід на попередню сторінку
+      fetchAndDisplayEntries(); // Оновлюємо записи для нової сторінки
+    }
+  });
+
+  nextPageBtn.addEventListener("click", () => {
+    currentPage++; // Перехід на наступну сторінку
+    fetchAndDisplayEntries(); // Оновлюємо записи для нової сторінки
+  });
+
+  // Ініціалізація пагінації при першому завантаженні сторінки
+  fetchAndDisplayEntries(); // Отримуємо та відображаємо записи для першої сторінки
 });
