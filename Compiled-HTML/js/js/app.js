@@ -84,12 +84,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Створюємо HTML контент для кожного запису
       entryDiv.innerHTML = `
-        <p><strong>Customer Name:</strong> ${entry.CustomerName}</p>
-        <p><strong>Company:</strong> ${entry.Company}</p>
-        <p><strong>Phone:</strong> ${entry.PhoneNumber}</p>
-        <p><strong>Email:</strong> ${entry.Email}</p>
-        <p><strong>Country:</strong> ${entry.Country}</p>
-        <p><strong>Status:</strong> ${entry.Status}</p>
+        <div class="content-table">
+        <p>${entry.CustomerName}</p>
+        <p>${entry.Company}</p>
+        <p>${entry.PhoneNumber}</p>
+        <p>${entry.Email}</p> 
+        <p>${entry.Country}</p>
+        <p>
+          <span class="status ${
+            entry.Status === "Active" ? "active" : "inactive"
+          }">
+           ${entry.Status}
+           </span>
+        </p>
+      </div>
       `;
 
       // Додаємо запис до контейнера

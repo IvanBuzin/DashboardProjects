@@ -10,6 +10,9 @@ table.customers-table {
   margin-left: 33px;
 }
 .hover-table {
+  display: flex;
+  justify-content: space-between;
+  width: 863px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -65,4 +68,8 @@ table.customers-table tbody tr:hover {
   border: 1px solid #df0404;
   --inactive-color: #df0404;
   margin-top: 20px;
+}
+.content-table {
+  display: flex;
+  width: 866px;
 }

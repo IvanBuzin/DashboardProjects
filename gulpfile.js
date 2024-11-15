@@ -3,6 +3,7 @@ const pug = require("gulp-pug");
 const sass = require("sass"); // Використання Dart Sass напряму
 const gulpSass = require("gulp-sass")(sass);
 const browserSync = require("browser-sync").create();
+const fs = require("fs");
 
 // Параметри
 const paths = {
@@ -30,9 +31,10 @@ const paths = {
 
 // Компіляція Pug
 function compilePug() {
+  const data = JSON.parse(fs.readFileSync("./src/json/cost.json", "utf8"));
   return gulp
     .src(paths.pug.src)
-    .pipe(pug())
+    .pipe(pug({ data: data, pretty: true }))
     .pipe(gulp.dest(paths.pug.dest))
     .pipe(browserSync.stream());
 }
