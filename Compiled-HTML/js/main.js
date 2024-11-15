@@ -1,149 +1,10 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Перевірка наявності елементів
-//   const paginationInfo = document.getElementById("pagination-info");
-//   const paginationList = document.getElementById("pagination-list");
-//   const prevPageBtn = document.getElementById("prev-page");
-//   const nextPageBtn = document.getElementById("next-page");
-//   const entriesContainer = document.getElementById("entries-container");
-
-//   // Перевірка, чи всі елементи знайдені на сторінці
-//   if (
-//     !paginationInfo ||
-//     !paginationList ||
-//     !prevPageBtn ||
-//     !nextPageBtn ||
-//     !entriesContainer
-//   ) {
-//     console.error("Не знайдені деякі елементи DOM. Перевірте HTML структуру.");
-//     return; // Якщо хоча б один елемент не знайдений, зупиняємо виконання скрипта
-//   }
-
-//   // Початкові значення
-//   let currentPage = 1; // Поточна сторінка
-//   const recordsPerPage = 8; // Кількість записів на сторінку
-
-//   // Функція для оновлення пагінації на основі загальної кількості записів
-//   function updatePagination(totalEntries) {
-//     const totalPages = Math.ceil(totalEntries / recordsPerPage); // Загальна кількість сторінок
-
-//     // Оновлення інформації про пагінацію
-//     paginationInfo.textContent = `Показано дані з ${
-//       (currentPage - 1) * recordsPerPage + 1
-//     } по ${Math.min(
-//       currentPage * recordsPerPage,
-//       totalEntries
-//     )} з ${totalEntries} записів`;
-
-//     // Оновлення списку сторінок
-//     paginationList.innerHTML = ""; // Очищення списку пагінації
-//     for (let i = 1; i <= totalPages; i++) {
-//       const pageItem = document.createElement("li");
-//       pageItem.classList.add("page-item");
-
-//       const pageLink = document.createElement("a");
-//       pageLink.href = "#";
-//       pageLink.textContent = i;
-//       pageLink.dataset.page = i; // Додаємо атрибут data-page для ідентифікації сторінки
-
-//       // Додаємо обробник події на клік для переходу на вибрану сторінку
-//       pageLink.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         currentPage = i; // Оновлюємо поточну сторінку
-//         fetchAndDisplayEntries(); // Завантажуємо записи для нової сторінки
-//       });
-
-//       pageItem.appendChild(pageLink);
-//       paginationList.appendChild(pageItem);
-//     }
-
-//     // Умови активації/деактивації кнопок пагінації
-//     prevPageBtn.disabled = currentPage === 1; // Дизейбл кнопки "Попередня" на першій сторінці
-//     nextPageBtn.disabled = currentPage === totalPages; // Дизейбл кнопки "Наступна" на останній сторінці
-//   }
-
-//   // Функція для отримання записів для поточної сторінки
-//   function fetchAndDisplayEntries() {
-//     // Запит на сервер для отримання записів для поточної сторінки
-//     fetch(`src/json/cost.json?page=${currentPage}&limit=${recordsPerPage}`)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         // Перевірка на наявність даних у відповіді
-//         if (!data || !data.totalRecords || !data.records) {
-//           throw new Error("Невірний формат даних");
-//         }
-//         updatePagination(data.totalRecords); // Оновлюємо пагінацію
-//         displayEntries(data.records); // Виводимо записи на сторінці
-//       })
-//       .catch((error) => {
-//         console.error("Помилка при завантаженні даних:", error);
-//         entriesContainer.innerHTML = "Не вдалося завантажити дані.";
-//       });
-//   }
-
-//   // Функція для відображення записів на сторінці
-//   function displayEntries(entries) {
-//     entriesContainer.innerHTML = ""; // Очищаємо контейнер записів
-
-//     // Якщо записи не знайдені або масив порожній
-//     if (!Array.isArray(entries) || entries.length === 0) {
-//       entriesContainer.textContent = "Немає записів для відображення";
-//       return;
-//     }
-
-//     // Виводимо кожен запис
-//     entries.forEach((entry) => {
-//       const entryDiv = document.createElement("div");
-//       entryDiv.classList.add("entry");
-
-//       // Виводимо дані з запису (замінити поля відповідно до JSON)
-//       entryDiv.innerHTML = `
-//       <div class="content-table">
-//         <p>${entry.CustomerName}</p>
-//         <p>${entry.Company}</p>
-//         <p>${entry.PhoneNumber}</p>
-//         <p>${entry.Email}</p>
-//         <p>${entry.Country}</p>
-//         <p>
-//           <span class="status ${
-//             entry.Status === "Active" ? "active" : "inactive"
-//           }">
-//            ${entry.Status}
-//            </span>
-//         </p>
-//       </div>
-//       `;
-
-//       // Додаємо запис до контейнера
-//       entriesContainer.appendChild(entryDiv);
-//     });
-//   }
-
-//   // Обробники подій для кнопок пагінації
-//   prevPageBtn.addEventListener("click", () => {
-//     if (currentPage > 1) {
-//       currentPage--; // Перехід на попередню сторінку
-//       fetchAndDisplayEntries(); // Оновлюємо записи для нової сторінки
-//     }
-//   });
-
-//   nextPageBtn.addEventListener("click", () => {
-//     currentPage++; // Перехід на наступну сторінку
-//     fetchAndDisplayEntries(); // Оновлюємо записи для нової сторінки
-//   });
-
-//   // Ініціалізація пагінації при першому завантаженні сторінки
-//   fetchAndDisplayEntries(); // Отримуємо та відображаємо записи для першої сторінки
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Перевірка наявності елементів
   const paginationInfo = document.getElementById("pagination-info");
   const paginationList = document.getElementById("pagination-list");
   const prevPageBtn = document.getElementById("prev-page");
   const nextPageBtn = document.getElementById("next-page");
   const entriesContainer = document.getElementById("entries-container");
 
-  // Перевірка, чи всі елементи знайдені на сторінці
   if (
     !paginationInfo ||
     !paginationList ||
@@ -152,18 +13,47 @@ document.addEventListener("DOMContentLoaded", () => {
     !entriesContainer
   ) {
     console.error("Не знайдені деякі елементи DOM. Перевірте HTML структуру.");
-    return; // Якщо хоча б один елемент не знайдений, зупиняємо виконання скрипта
+    return;
   }
 
-  // Початкові значення
-  let currentPage = 1; // Поточна сторінка
-  const recordsPerPage = 8; // Кількість записів на сторінку
+  let currentPage = 1;
+  const recordsPerPage = 8;
 
-  // Функція для оновлення пагінації на основі загальної кількості записів
+  // function updatePagination(totalEntries) {
+  //   const totalPages = Math.ceil(totalEntries / recordsPerPage);
+
+  //   paginationInfo.textContent = `Показано дані з ${
+  //     (currentPage - 1) * recordsPerPage + 1
+  //   } по ${Math.min(
+  //     currentPage * recordsPerPage,
+  //     totalEntries
+  //   )} з ${totalEntries} записів`;
+
+  //   paginationList.innerHTML = "";
+  //   for (let i = 1; i <= totalPages; i++) {
+  //     const pageItem = document.createElement("li");
+  //     pageItem.classList.add("page-item");
+
+  //     const pageLink = document.createElement("a");
+  //     pageLink.href = "#";
+  //     pageLink.textContent = i;
+  //     pageLink.dataset.page = i;
+
+  //     pageLink.addEventListener("click", (e) => {
+  //       e.preventDefault();
+  //       currentPage = i;
+  //       fetchAndDisplayEntries();
+  //     });
+
+  //     pageItem.appendChild(pageLink);
+  //     paginationList.appendChild(pageItem);
+  //   }
+
+  //   prevPageBtn.disabled = currentPage === 1;
+  //   nextPageBtn.disabled = currentPage === totalPages;
+  // }
   function updatePagination(totalEntries) {
-    const totalPages = Math.ceil(totalEntries / recordsPerPage); // Загальна кількість сторінок
-
-    // Оновлення інформації про пагінацію
+    const totalPages = Math.ceil(totalEntries / recordsPerPage);
     paginationInfo.textContent = `Показано дані з ${
       (currentPage - 1) * recordsPerPage + 1
     } по ${Math.min(
@@ -171,37 +61,79 @@ document.addEventListener("DOMContentLoaded", () => {
       totalEntries
     )} з ${totalEntries} записів`;
 
-    // Оновлення списку сторінок
     paginationList.innerHTML = ""; // Очищення списку пагінації
+
+    // Додаємо кнопку "Попередня"
+    const prevItem = document.createElement("li");
+    prevItem.classList.add("page-item");
+    prevItem.innerHTML = `<a href="#" class="page-link">&lt;</a>`;
+    prevItem.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentPage > 1) {
+        currentPage--;
+        fetchAndDisplayEntries();
+      }
+    });
+    paginationList.appendChild(prevItem);
+    prevItem.classList.toggle("disabled", currentPage === 1);
+
+    // Логіка для скороченої пагінації
     for (let i = 1; i <= totalPages; i++) {
-      const pageItem = document.createElement("li");
-      pageItem.classList.add("page-item");
+      if (
+        i === 1 || // Перша сторінка
+        i === totalPages || // Остання сторінка
+        (i >= currentPage - 1 && i <= currentPage + 1) // Поточна, попередня та наступна сторінки
+      ) {
+        const pageItem = document.createElement("li");
+        pageItem.classList.add("page-item");
 
-      const pageLink = document.createElement("a");
-      pageLink.href = "#";
-      pageLink.textContent = i;
-      pageLink.dataset.page = i; // Додаємо атрибут data-page для ідентифікації сторінки
+        const pageLink = document.createElement("a");
+        pageLink.href = "#";
+        pageLink.textContent = i;
+        pageLink.dataset.page = i;
+        pageLink.classList.add("page-link");
 
-      // Додаємо обробник події на клік для переходу на вибрану сторінку
-      pageLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        currentPage = i; // Оновлюємо поточну сторінку
-        fetchAndDisplayEntries(); // Завантажуємо записи для нової сторінки
-      });
+        if (i === currentPage) {
+          pageItem.classList.add("active");
+        }
 
-      pageItem.appendChild(pageLink);
-      paginationList.appendChild(pageItem);
+        pageLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentPage = i;
+          fetchAndDisplayEntries();
+        });
+
+        pageItem.appendChild(pageLink);
+        paginationList.appendChild(pageItem);
+      } else if (
+        (i === currentPage - 2 && currentPage > 3) ||
+        (i === currentPage + 2 && currentPage < totalPages - 2)
+      ) {
+        // Додаємо "..." для пропущених сторінок
+        const dots = document.createElement("li");
+        dots.classList.add("page-item", "disabled");
+        dots.innerHTML = `<span class="page-link">...</span>`;
+        paginationList.appendChild(dots);
+      }
     }
 
-    // Умови активації/деактивації кнопок пагінації
-    prevPageBtn.disabled = currentPage === 1; // Дизейбл кнопки "Попередня" на першій сторінці
-    nextPageBtn.disabled = currentPage === totalPages; // Дизейбл кнопки "Наступна" на останній сторінці
+    // Додаємо кнопку "Наступна"
+    const nextItem = document.createElement("li");
+    nextItem.classList.add("page-item");
+    nextItem.innerHTML = `<a href="#" class="page-link">&gt;</a>`;
+    nextItem.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentPage < totalPages) {
+        currentPage++;
+        fetchAndDisplayEntries();
+      }
+    });
+    paginationList.appendChild(nextItem);
+    nextItem.classList.toggle("disabled", currentPage === totalPages);
   }
 
-  // Функція для отримання записів для поточної сторінки
   function fetchAndDisplayEntries() {
-    // Запит на сервер для отримання записів для поточної сторінки
-    fetch(`/json/cost.json?page=${currentPage}&limit=${recordsPerPage}`)
+    fetch(`/json/cost.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Помилка на сервері, спробуйте пізніше.");
@@ -209,12 +141,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((data) => {
-        // Перевірка на наявність даних у відповіді
-        if (!data || !data.totalEntries || !data.entries) {
+        if (!data || !Array.isArray(data.entries)) {
           throw new Error("Невірний формат даних");
         }
-        updatePagination(data.totalEntries); // Оновлюємо пагінацію
-        displayEntries(data.entries); // Виводимо записи на сторінці
+
+        const totalEntries = data.entries.length;
+        updatePagination(totalEntries);
+
+        const start = (currentPage - 1) * recordsPerPage;
+        const end = start + recordsPerPage;
+        const entriesToShow = data.entries.slice(start, end);
+
+        displayEntries(entriesToShow);
       })
       .catch((error) => {
         console.error("Помилка при завантаженні даних:", error);
@@ -222,29 +160,33 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Функція для відображення записів на сторінці
   function displayEntries(entries) {
-    entriesContainer.innerHTML = ""; // Очищаємо контейнер записів
+    entriesContainer.innerHTML = ` 
+    <div class="hover-table">
+        <p class="name">Customer Name</p>
+        <p class="company">Company</p> 
+        <p class="number">Phone Number</p>
+        <p class="email">Email</p>
+        <p class="country">Country</p>
+        <p class="status">Status</p>
+    </div>`;
 
-    // Якщо записи не знайдені або масив порожній
     if (!Array.isArray(entries) || entries.length === 0) {
       entriesContainer.textContent = "Немає записів для відображення";
       return;
     }
 
-    // Виводимо кожен запис
     entries.forEach((entry) => {
       const entryDiv = document.createElement("div");
       entryDiv.classList.add("entry");
 
-      // Виводимо дані з запису (замінити поля відповідно до JSON)
-      entryDiv.innerHTML = `                
+      entryDiv.innerHTML = `              
       <div class="content-table">
-        <p>${entry.CustomerName}</p>
-        <p>${entry.Company}</p>
-        <p>${entry.PhoneNumber}</p>
-        <p>${entry.Email}</p> 
-        <p>${entry.Country}</p>
+        <p class="name">${entry.CustomerName}</p>
+        <p class="company">${entry.Company}</p>
+        <p class="number">${entry.PhoneNumber}</p>
+        <p class="email">${entry.Email}</p> 
+        <p class="country">${entry.Country}</p>
         <p>
           <span class="status ${
             entry.Status === "Active" ? "active" : "inactive"
@@ -255,24 +197,21 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       `;
 
-      // Додаємо запис до контейнера
       entriesContainer.appendChild(entryDiv);
     });
   }
 
-  // Обробники подій для кнопок пагінації
   prevPageBtn.addEventListener("click", () => {
     if (currentPage > 1) {
-      currentPage--; // Перехід на попередню сторінку
-      fetchAndDisplayEntries(); // Оновлюємо записи для нової сторінки
+      currentPage--;
+      fetchAndDisplayEntries();
     }
   });
 
   nextPageBtn.addEventListener("click", () => {
-    currentPage++; // Перехід на наступну сторінку
-    fetchAndDisplayEntries(); // Оновлюємо записи для нової сторінки
+    currentPage++;
+    fetchAndDisplayEntries();
   });
 
-  // Ініціалізація пагінації при першому завантаженні сторінки
-  fetchAndDisplayEntries(); // Отримуємо та відображаємо записи для першої сторінки
+  fetchAndDisplayEntries();
 });

@@ -81,73 +81,14 @@ html(lang="en")
                                   td= entry.Email
                                   td= entry.Country
                                   td.status(class=`status-${entry.Status.toLowerCase()}`)= entry.Status
-                                                        //-   td Microsoft
-                              //-   td (225) 555-0118
-                              //-   td jane@microsoft.com
-                              //-   td United States
-                              //-   td.status.status-active Active
-                              //- tr.content-table
-                              //-   td Floyd Miles
-                              //-   td Yahoo
-                              //-   td (205) 555-0100
-                              //-   td floyd@yahoo.com
-                              //-   td Kiribati
-                              //-   td.status.status-inactive Inactive
-                              //- tr.content-table
-                              //-   td Ronald Richards
-                              //-   td Adobe
-                              //-   td (302) 555-0107
-                              //-   td ronald@adobe.com
-                              //-   td Israel
-                              //-   td.status.status-inactive Inactive
-                              //- tr.content-table 
-                              //-   td Marvin McKinney
-                              //-   td Tesla
-                              //-   td (252) 555-0126
-                              //-   td marvin@tesla.com
-                              //-   td Iran
-                              //-   td.status.status-active Active
-                              //- tr.content-table 
-                              //-   td Jerome Bell
-                              //-   td Google
-                              //-   td (629) 555-0129
-                              //-   td jerome@google.com
-                              //-   td Réunion
-                              //-   td.status.status-active Active
-                              //- tr.content-table 
-                              //-   td Kathryn Murphy
-                              //-   td Microsoft
-                              //-   td (406) 555-0120
-                              //-   td kathryn@microsoft.com
-                              //-   td Curaçao
-                              //-   td.status.status-active Active
-                              //- tr.content-table 
-                              //-   td Jacob Jones
-                              //-   td Yahoo
-                              //-   td (208) 555-0112
-                              //-   td jacob@yahoo.com
-                              //-   td Brazil
-                              //-   td.status.status-active Active
-                              //- tr.content-table 
-                              //-   td Kristin Watson
-                              //-   td Facebook
-                              //-   td (704) 555-0127
-                              //-   td kristin@facebook.com
-                              //-   td Åland Islands
-                              //-   td.status.status-inactive Inactive
-                              //- tr.content-table 
-                              //-   td Fabio Watson
-                              //-   td Facebook
-                              //-   td (704) 555-0129
-                              //-   td fabio@facebook.com
-                              //-   td Åland Islands
-                              //-   td.status.status-inactive Inactive
-                              //- Add more rows as needed
+                                                         
         //- Pagination
         .pagination
         #pagination-info.pagination-text Showing data 1 to 8 of 256K entries
         img#prev-page.left-active(src="img/l.svg", alt="Previous page") 
         ul#pagination-list.pagination-list(aria-label="Pagination")
+            li.page-item.disabled 
+             a(href="#")
             li.page-item
               a(href="#") 1
             li.page-item

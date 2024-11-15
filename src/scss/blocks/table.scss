@@ -11,7 +11,6 @@ table.customers-table {
 }
 .hover-table {
   display: flex;
-  justify-content: space-between;
   width: 863px;
   font-family: "Poppins";
   font-style: normal;
@@ -22,6 +21,26 @@ table.customers-table {
   letter-spacing: -0.01em;
 
   color: #b5b7c0;
+}
+.name {
+  width: 100%;
+}
+
+.company {
+  position: absolute;
+  left: 172px;
+}
+.number {
+  position: absolute;
+  left: 303px;
+}
+.email {
+  position: absolute;
+  left: 459px;
+}
+.country {
+  position: absolute;
+  left: 666px;
 }
 
 table.customers-table th,
@@ -56,20 +75,21 @@ table.customers-table tbody tr:hover {
   vertical-align: middle; /* Вирівнювання по центру рядка */
 }
 
-.status-active {
+.status.active {
   background: rgba(22, 192, 152, 0.38);
   border: 1px solid #00b087;
   --active-color: #16c098;
-  margin-top: 20px;
 }
 
-.status-inactive {
+.status.inactive {
   background: #ffc5c5;
   border: 1px solid #df0404;
   --inactive-color: #df0404;
-  margin-top: 20px;
 }
 .content-table {
   display: flex;
-  width: 866px;
+  width: 886px;
+  padding: 20px 0px;
+  height: 29px;
+  align-items: center;
 }
