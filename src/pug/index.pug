@@ -60,48 +60,36 @@ html(lang="en")
                           //- Search Input
                           .search-bar
                             img.search-icon(src="img/search.svg", alt="Search")
-                            input(type="text" placeholder="Search" class="search-input")
+                            input#search-input(type="text" placeholder="Search" class="search-input")
                           
                           //- Table
                           table#entries-container.customers-table
                             thead
                               tr.hover-table
-                                th Customer Name
-                                th Company
-                                th Phone Number
-                                th Email
-                                th Country
+                                th.name Customer Name
+                                th.company Company
+                                th.number Phone Number
+                                th.email Email
+                                th.country Country
                                 th.status Status
                             tbody
                               each entry in entries
                                 tr.content-table
-                                  td= entry.CustomerName
-                                  td= entry.Company
-                                  td= entry.PhoneNumber
-                                  td= entry.Email
-                                  td= entry.Country
+                                  td.name= entry.CustomerName
+                                  td.company= entry.Company
+                                  td.number= entry.PhoneNumber
+                                  td.email= entry.Email
+                                  td.country= entry.Country
                                   td.status(class=`status-${entry.Status.toLowerCase()}`)= entry.Status
-                                                         
-        //- Pagination
+                                                                       
+        //- Pagination                                                              
         .pagination
-        #pagination-info.pagination-text Showing data 1 to 8 of 256K entries
-        img#prev-page.left-active(src="img/l.svg", alt="Previous page") 
-        ul#pagination-list.pagination-list(aria-label="Pagination")
-            li.page-item.disabled 
-             a(href="#")
-            li.page-item
-              a(href="#") 1
-            li.page-item
-              a(href="#") 2
-            li.page-item
-              a(href="#") 3
-            li.page-item
-              a(href="#") 4
-            li.page-item
-              a(href="#") ...
-            li.page-item
-              a(href="#") 40
-        img#next-page.pagination-right-active(src="img/r.svg", alt="Next page")
+  #pagination-info.pagination-text Showing data 1 to 8 of 256K entries
+  img#prev-page.left-active(src="img/l.svg", alt="Previous page") 
+  ul#pagination-list.pagination-list(aria-label="Pagination")
+    // Динамічно створювані елементи
+  img#next-page.pagination-right-active(src="img/r.svg", alt="Next page")
+
 
 //- Форма для додавання нового клієнта
 //- form#nuevo-cliente

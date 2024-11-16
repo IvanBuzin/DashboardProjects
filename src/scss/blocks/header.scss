@@ -94,6 +94,7 @@
   width: 24px;
   height: 24px;
   color: #b5b7c0;
+  opacity: 0.6;
 }
 
 .search-input {
@@ -115,4 +116,32 @@
 
 .search-bar:hover {
   background-color: #5932ea;
+}
+
+/* Загальна стилізація для пошукового блоку */
+.search-bar {
+  border: 1px solid #ddd;
+}
+
+.search-icon {
+  // width: 20px;
+  // height: 20px;
+  // margin-right: 10px;
+  // opacity: 0.6;
+}
+
+.search-icon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  // font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: #aaa;
 }
