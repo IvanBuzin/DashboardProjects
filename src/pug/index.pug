@@ -71,7 +71,7 @@ html(lang="en")
                                 th.number Phone Number
                                 th.email Email
                                 th.country Country
-                                th.status Status
+                                th.statuse Status
                             tbody
                               each entry in entries
                                 tr.content-table
@@ -91,7 +91,7 @@ html(lang="en")
   img#next-page.pagination-right-active(src="img/r.svg", alt="Next page")
 
 
-//- Форма для додавання нового клієнта
+//-Форма для додавання нового клієнта
 //- form#nuevo-cliente
 //-   label(for="customerName") Customer Name
 //-   input(type="text" id="customerName" required)
@@ -117,3 +117,7 @@ html(lang="en")
 
 
 script(type="module" src="/js/main.js")
+script(type="module" src="/js/js/search.js")
+script(type="module" src="/js/js/animateTable.js")
+script(type="module" src="/js/js/animateNewRows.js")
+//- script(type="module" src="/js/js/newCustomer.js")

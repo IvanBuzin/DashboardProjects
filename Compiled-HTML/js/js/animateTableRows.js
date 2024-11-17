@@ -1,12 +1,20 @@
-// // Анімація при наведенні на рядки таблиці:
-// const tableRows = document.querySelectorAll(".customer-table tbody tr");
+document.addEventListener("DOMContentLoaded", function () {
+  const tableRows = document.querySelectorAll(".customer-table tbody tr");
 
-// tableRows.forEach((row) => {
-//   row.addEventListener("mouseenter", () => {
-//     row.classList.add("row-hover");
-//   });
+  // Перевірка, чи є рядки таблиці
+  if (tableRows.length === 0) {
+    console.warn("Не знайдено жодного рядка таблиці для анімації.");
+    return;
+  }
 
-//   row.addEventListener("mouseleave", () => {
-//     row.classList.remove("row-hover");
-//   });
-// });
+  // Додавання обробників подій для кожного рядка
+  tableRows.forEach((row) => {
+    row.addEventListener("mouseenter", () => {
+      row.classList.add("row-hover");
+    });
+
+    row.addEventListener("mouseleave", () => {
+      row.classList.remove("row-hover");
+    });
+  });
+});

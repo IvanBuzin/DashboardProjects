@@ -42,7 +42,10 @@ table.customers-table {
   position: absolute;
   left: 666px;
 }
-
+.statuse {
+  position: absolute;
+  left: 818px;
+}
 table.customers-table th,
 table.customers-table td {
   text-align: left;
@@ -92,4 +95,43 @@ table.customers-table tbody tr:hover {
   padding: 20px 0px;
   height: 29px;
   align-items: center;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* Початковий стан таблиці (прихована) */
+.customers-table {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Анімація */
+.customers-table.table-animate {
+  will-change: opacity, transform;
+}
+
+/* Кінцевий стан (після анімації) */
+.customers-table.table-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Початковий стан рядка */
+.content-table {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Ефект при наведенні */
+.content-table:hover {
+  background-color: #7dc2fa; /*Світло-блакитний фон */
+  transform: scale(1.01); /* Невелике збільшення */
+  color: #ffffff;
+}
+
+.customers-table td {
+  white-space: nowrap; /* Забороняє тексту переноситись */
+  overflow: hidden; /* Обрізає текст, що виходить за межі */
+  text-overflow: ellipsis; /* Додає три крапки для довгого тексту */
+  max-width: 200px; /* Максимальна ширина осередку */
 }

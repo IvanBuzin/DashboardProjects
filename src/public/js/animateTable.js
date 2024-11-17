@@ -1,13 +1,18 @@
-// // Анімація появи таблиці при завантаженні сторінки:
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Знайти таблицю за класом
-//   const table = document.querySelector(".customers-table");
+document.addEventListener("DOMContentLoaded", function () {
+  // Знайти таблицю за класом
+  const table = document.querySelector(".customers-table");
 
-//   // Додати клас з анімацією
-//   table.classList.add("table-animate");
+  // Перевірка, чи таблиця існує
+  if (!table) {
+    console.error("Таблиця з класом .customers-table не знайдена.");
+    return;
+  }
 
-//   // Показати таблицю з затримкою (для надання ефекту)
-//   setTimeout(function () {
-//     table.classList.add("table-visible");
-//   }, 200);
-// });
+  // Додати клас з анімацією
+  table.classList.add("table-animate");
+
+  // Показати таблицю з затримкою (для ефекту)
+  setTimeout(function () {
+    table.classList.add("table-visible");
+  }, 200);
+});
