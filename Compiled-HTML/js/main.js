@@ -4,13 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevPageBtn = document.getElementById("prev-page");
   const nextPageBtn = document.getElementById("next-page");
   const entriesContainer = document.getElementById("entries-container");
+  const filterActiveLink = document.getElementById("filter-active");
 
   if (
     !paginationInfo ||
     !paginationList ||
     !prevPageBtn ||
     !nextPageBtn ||
-    !entriesContainer
+    !entriesContainer ||
+    !filterActiveLink
   ) {
     console.error("Не знайдені деякі елементи DOM. Перевірте HTML структуру.");
     return;
@@ -18,36 +20,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentPage = 1;
   const recordsPerPage = 8;
-  let totalPages = 0;
+  let isFilteringActive = false; // Стан фільтрації активних користувачів
+  let allEntries = []; // Зберігаємо всі записи
 
-  // Оновлення пагінації
-  window.updatePagination = function (totalEntries) {
+  // Завантаження даних
+  function fetchAndDisplayEntries() {
+    fetch(`/json/cost.json`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Помилка на сервері, спробуйте пізніше.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (!data || !Array.isArray(data.entries)) {
+          throw new Error("Невірний формат даних");
+        }
+
+        allEntries = data.entries; // Зберігаємо всі записи
+        applyFiltersAndPagination(); // Застосовуємо фільтрацію та оновлюємо пагінацію
+      })
+      .catch((error) => {
+        console.error("Помилка при завантаженні даних:", error);
+        entriesContainer.innerHTML = "Не вдалося завантажити дані.";
+      });
+  }
+
+  // Фільтрація та пагінація
+  function applyFiltersAndPagination() {
+    let filteredEntries = allEntries;
+
+    // Якщо активна фільтрація, залишаємо лише активних користувачів
+    if (isFilteringActive) {
+      filteredEntries = allEntries.filter((entry) => entry.Status === "Active");
+    }
+
+    const totalEntries = filteredEntries.length;
     const totalPages = Math.ceil(totalEntries / recordsPerPage);
 
-    // Оновлюємо інформацію про кількість записів
+    // Обмежуємо сторінки в межах дозволеного
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    } else if (currentPage < 1) {
+      currentPage = 1;
+    }
+
+    // Відображаємо потрібні записи
+    const start = (currentPage - 1) * recordsPerPage;
+    const end = start + recordsPerPage;
+    const entriesToShow = filteredEntries.slice(start, end);
+
+    updatePagination(totalEntries);
+    displayEntries(entriesToShow);
+  }
+
+  // Оновлення пагінації
+  function updatePagination(totalEntries) {
+    const totalPages = Math.ceil(totalEntries / recordsPerPage);
+
     paginationInfo.textContent = `Showing data ${
-      (currentPage - 1) * recordsPerPage + 1
+      totalEntries === 0 ? 0 : (currentPage - 1) * recordsPerPage + 1
     } to ${Math.min(
       currentPage * recordsPerPage,
       totalEntries
     )} of ${totalEntries} entries`;
 
-    // Очищення списку сторінок
     paginationList.innerHTML = "";
 
-    // Оновлюємо стан кнопок
     prevPageBtn.classList.toggle("left-disabled", currentPage === 1);
     nextPageBtn.classList.toggle(
       "pagination-right-disabled",
       currentPage === totalPages
     );
 
-    // Відображення сторінок
     for (let i = 1; i <= totalPages; i++) {
       if (
-        i === 1 || // Перша сторінка
-        i === totalPages || // Остання сторінка
-        (i >= currentPage - 1 && i <= currentPage + 1) // Поточна, попередня та наступна
+        i === 1 ||
+        i === totalPages ||
+        (i >= currentPage - 1 && i <= currentPage + 1)
       ) {
         const pageItem = document.createElement("li");
         pageItem.classList.add("page-item");
@@ -65,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
           e.preventDefault();
           if (i !== currentPage) {
             currentPage = i;
-            fetchAndDisplayEntries();
+            applyFiltersAndPagination(); // Застосовуємо фільтрацію та пагінацію
           }
         });
 
@@ -81,35 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
         paginationList.appendChild(dots);
       }
     }
-  };
-
-  // Завантаження даних
-  function fetchAndDisplayEntries() {
-    fetch(`/json/cost.json`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Помилка на сервері, спробуйте пізніше.");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (!data || !Array.isArray(data.entries)) {
-          throw new Error("Невірний формат даних");
-        }
-
-        const totalEntries = data.entries.length;
-        updatePagination(totalEntries);
-
-        const start = (currentPage - 1) * recordsPerPage;
-        const end = start + recordsPerPage;
-        const entriesToShow = data.entries.slice(start, end);
-
-        displayEntries(entriesToShow);
-      })
-      .catch((error) => {
-        console.error("Помилка при завантаженні даних:", error);
-        entriesContainer.innerHTML = "Не вдалося завантажити дані.";
-      });
   }
 
   // Відображення записів
@@ -158,15 +179,21 @@ document.addEventListener("DOMContentLoaded", () => {
   prevPageBtn.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
-      fetchAndDisplayEntries();
+      applyFiltersAndPagination();
     }
   });
 
   nextPageBtn.addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      fetchAndDisplayEntries();
-    }
+    currentPage++;
+    applyFiltersAndPagination();
+  });
+
+  // Обробник для кнопки "Active Members"
+  filterActiveLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    isFilteringActive = !isFilteringActive; // Перемикаємо фільтрацію
+    currentPage = 1; // Починаємо з першої сторінки
+    applyFiltersAndPagination();
   });
 
   fetchAndDisplayEntries(); // Початкове завантаження
