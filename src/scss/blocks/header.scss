@@ -66,11 +66,6 @@
 
   color: #16c098;
 }
-// .customers-header a.active-content {
-//   color: #3ab8ff;
-//   text-decoration: none;
-//   font-weight: 500;
-// }
 
 .search-bar {
   left: 668px;
@@ -123,13 +118,6 @@
   border: 1px solid #ddd;
 }
 
-.search-icon {
-  // width: 20px;
-  // height: 20px;
-  // margin-right: 10px;
-  // opacity: 0.6;
-}
-
 .search-icon:hover {
   opacity: 1;
   cursor: pointer;
@@ -144,4 +132,96 @@
 
 .search-input::placeholder {
   color: #aaa;
+}
+
+/* Медіазапити */
+
+/* Для екранів до 1024px */
+@media (max-width: 1024px) {
+  .dashboard {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+
+  .content {
+    position: static;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .heder-info {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .customers {
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .search-bar {
+    width: 90%;
+    margin: 20px auto;
+    left: auto;
+    right: auto;
+  }
+}
+
+/* Для екранів до 768px */
+@media (max-width: 768px) {
+  .search-bar {
+    padding-left: 12px; /* Зменшення відступу */
+    height: 36px;
+  }
+
+  .search-input {
+    font-size: 10px;
+  }
+
+  .heder-info {
+    font-size: 18px;
+  }
+
+  .customers-info {
+    font-size: 18px;
+  }
+
+  .active-content {
+    font-size: 12px;
+  }
+}
+
+/* Для екранів до 480px */
+@media (max-width: 480px) {
+  .content {
+    border-radius: 10px;
+  }
+  .customers {
+    left: 30px;
+    width: 330px;
+  }
+
+  .search-bar {
+    height: 32px;
+    font-size: 10px;
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .search-input {
+    font-size: 9px;
+    margin-left: 24px;
+  }
+
+  .heder-info {
+    font-size: 16px;
+  }
 }

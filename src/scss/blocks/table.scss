@@ -1,5 +1,3 @@
-/*table 33333333333333333333*/
-
 table.customers-table {
   position: absolute;
   width: 934px;
@@ -17,7 +15,6 @@ table.customers-table {
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
-  /* identical to box height */
   letter-spacing: -0.01em;
 
   color: #b5b7c0;
@@ -134,4 +131,83 @@ table.customers-table tbody tr:hover {
   overflow: hidden; /* Обрізає текст, що виходить за межі */
   text-overflow: ellipsis; /* Додає три крапки для довгого тексту */
   max-width: 200px; /* Максимальна ширина осередку */
+}
+
+/* Медіазапити */
+
+/* Для екранів до 768px */
+@media (max-width: 768px) {
+  table.customers-table {
+    width: 100%; /* Таблиця займає всю ширину */
+    margin-left: 0;
+    top: 300px;
+    height: auto; /* Висота адаптується під контент */
+  }
+  .hover-table {
+    display: none; /* Ховаємо "хедер" таблиці */
+  }
+
+  .content-table {
+    display: grid; /* Використовуємо грід для адаптації */
+    grid-template-columns: 1fr 1fr; /* Два стовпці */
+    gap: 10px; /* Відступи між елементами */
+    padding: 10px; /* Зменшуємо відступи */
+  }
+
+  .content-table p {
+    font-size: 12px; /* Зменшення тексту */
+  }
+
+  .status {
+    font-size: 12px; /* Розмір тексту статусу */
+    width: auto; /* Ширина адаптується до контенту */
+    padding: 2px 6px;
+  }
+}
+
+/* Для екранів до 480px */
+@media (max-width: 480px) {
+  table.customers-table {
+    width: 100%;
+    margin-left: 30px;
+    top: 120px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .name {
+    width: 50px;
+  }
+  .company {
+    left: 70px;
+  }
+  .number {
+    left: 140px;
+    width: 60px;
+  }
+  .email {
+    left: 210px;
+    width: 60px;
+  }
+  .country {
+    left: 270px;
+  }
+  .status.active,
+  .status.inactive {
+    position: absolute;
+    left: 330px;
+  }
+  .content-table {
+    grid-template-columns: 1fr; /* Один стовпець */
+    padding: 5px; /* Ще менші відступи */
+  }
+
+  .content-table p {
+    font-size: 10px; /* Ще менший текст */
+  }
+
+  .status {
+    font-size: 10px; /* Статус ще менший */
+    padding: 1px 4px;
+  }
 }

@@ -145,3 +145,71 @@
   pointer-events: none;
   color: gray;
 }
+
+/* Медіазапити */
+
+/* Для екранів до 768px */
+@media (max-width: 768px) {
+  .pagination {
+    position: static; /* Знімаємо абсолютне позиціонування */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .pagination-content {
+    flex-direction: column; /* Розміщення тексту і кнопок одна під одною */
+    align-items: center;
+  }
+
+  .pagination-text {
+    font-size: 12px; /* Зменшений текст */
+    margin: 0;
+  }
+
+  .pagination-list {
+    gap: 4px;
+  }
+
+  .page-item a {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .left-active,
+  .pagination-right-active {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Для екранів до 480px */
+@media (max-width: 480px) {
+  .pagination {
+    flex-direction: column; /* Вертикальне вирівнювання */
+    gap: 5px;
+  }
+
+  .pagination-text {
+    font-size: 10px; /* Ще менший текст */
+  }
+
+  .page-item a {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+  }
+
+  .left-active,
+  .pagination-right-active {
+    width: 20px;
+    height: 20px;
+  }
+
+  .pagination-list {
+    gap: 3px;
+  }
+}
