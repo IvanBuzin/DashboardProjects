@@ -67,6 +67,20 @@
   color: #16c098;
 }
 
+#filter-active {
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#filter-active:hover {
+  background-color: #e0e0e0;
+}
+
+#filter-active.active {
+  background-color: #5932ea;
+  color: #ffffff;
+}
+
 .search-bar {
   left: 668px;
   position: absolute;
