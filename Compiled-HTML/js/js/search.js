@@ -300,20 +300,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const entriesMarkup = entries
       .map(
         (entry) => `
-      <div class="content-table">
-        <p class="name">${entry.CustomerName}</p>
-        <p class="company">${entry.Company}</p>
-        <p class="number">${entry.PhoneNumber}</p>
-        <p class="email">${entry.Email}</p>
-        <p class="country">${entry.Country}</p>
-        <p>
+      <tr class="content-table">
+        <td class="name">${entry.CustomerName}</td>
+        <td class="company">${entry.Company}</td>
+        <td class="number">${entry.PhoneNumber}</td>
+        <td class="email">${entry.Email}</td>
+        <td class="country">${entry.Country}</td>
+        <td>
           <span class="status ${
             entry.Status === "Active" ? "active" : "inactive"
           }">
             ${entry.Status}
           </span>
-        </p>
-      </div>`
+        </td>
+      </tr>`
       )
       .join("");
 

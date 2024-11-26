@@ -693,12 +693,12 @@ document.addEventListener("DOMContentLoaded", () => {
     entriesContainer.innerHTML = `
       <thead>
         <tr class="hover-table">
-          <th>Customer Name</th>
-          <th>Company</th>
-          <th>Phone Number</th>
-          <th>Email</th>
-          <th>Country</th>
-          <th>Status</th>
+          <th class="name">Customer Name</th>
+          <th class="company">Company</th>
+          <th class="number">Phone Number</th>
+          <th class="email">Email</th>
+          <th class="country">Country</th>
+          <th class="statuse">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -712,12 +712,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .map(
           (entry) => `
             <tr class="content-table">
-              <td>${entry.CustomerName}</td>
-              <td>${entry.Company}</td>
-              <td>${entry.PhoneNumber}</td>
-              <td>${entry.Email}</td>
-              <td>${entry.Country}</td>
-              <td class="${entry.Status.toLowerCase()}">${entry.Status}</td>
+              <td class="name">${entry.CustomerName}</td>
+              <td class="company">${entry.Company}</td>
+              <td class="number">${entry.PhoneNumber}</td>
+              <td class="email">${entry.Email}</td>
+              <td class="country">${entry.Country}</td>
+              <td class="statuse${entry.Status.toLowerCase()}">${
+            entry.Status
+          }</td>
             </tr>
           `
         )
