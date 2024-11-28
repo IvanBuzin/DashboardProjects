@@ -157,6 +157,7 @@ table.customers-table tbody tr:hover {
     grid-template-columns: 1fr 1fr; /* Два стовпці */
     gap: 10px; /* Відступи між елементами */
     padding: 10px; /* Зменшуємо відступи */
+    width: 708px;
   }
 
   .content-table p {
@@ -185,31 +186,35 @@ table.customers-table tbody tr:hover {
     font-size: 8px;
   }
   .name {
-    width: 50px;
+    width: 48px;
+    overflow: hidden; /* Обрізає текст, що виходить за межі */
+    text-overflow: ellipsis; /* Додає три крапки для довгого тексту */
   }
   .company {
-    left: 70px;
+    left: 56px;
   }
   .number {
-    left: 140px;
+    left: 112px;
     width: 60px;
   }
   .email {
-    left: 210px;
+    left: 176px;
     width: 60px;
   }
   .country {
-    left: 270px;
+    left: 244px;
+    width: 48px;
   }
   .status.active,
-  .status.inactive,
-  .statuse {
+  .status.inactive {
     position: absolute;
-    left: 330px;
+    left: 292px;
   }
+
   .content-table {
     grid-template-columns: 5fr; /* Один стовпець */
     padding: 5px; /* Ще менші відступи */
+    width: 100%;
   }
 
   .content-table p {
@@ -219,5 +224,6 @@ table.customers-table tbody tr:hover {
   .status {
     font-size: 8px; /* Статус ще менший */
     padding: 1px 4px;
+    width: 40px;
   }
 }

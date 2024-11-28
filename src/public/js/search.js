@@ -112,12 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <td class="number">${entry.PhoneNumber}</td>
         <td class="email">${entry.Email}</td>
         <td class="country">${entry.Country}</td>
-        <td>
-          <span class="status ${
-            entry.Status === "Active" ? "active" : "inactive"
-          }">
+        <td class="status ${entry.Status === "Active" ? "active" : "inactive"}">
             ${entry.Status}
-          </span>
         </td>
       </tr>`
       )
