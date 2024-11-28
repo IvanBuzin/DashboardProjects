@@ -1,202 +1,3 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const searchInput = document.getElementById("search-input");
-//   const entriesContainer = document.getElementById("entries-container");
-//   const paginationList = document.getElementById("pagination-list");
-//   const prevPageBtn = document.getElementById("prev-page");
-//   const nextPageBtn = document.getElementById("next-page");
-
-//   if (
-//     !searchInput ||
-//     !entriesContainer ||
-//     !paginationList ||
-//     !prevPageBtn ||
-//     !nextPageBtn
-//   ) {
-//     console.error("Не знайдені потрібні елементи. Перевірте HTML.");
-//     return;
-//   }
-
-//   let currentPage = 1;
-//   const recordsPerPage = 8;
-//   let fullData = []; // Усі записи, завантажені з JSON
-//   let filteredData = []; // Відфільтровані записи для відображення
-
-//   // Функція оновлення пагінації
-//   function updatePagination(totalEntries) {
-//     const totalPages = Math.ceil(totalEntries / recordsPerPage);
-
-//     // Оновлення тексту пагінації
-//     const paginationInfo = document.getElementById("pagination-info");
-//     if (paginationInfo) {
-//       paginationInfo.textContent = `Showing data ${
-//         (currentPage - 1) * recordsPerPage + 1
-//       } to ${Math.min(
-//         currentPage * recordsPerPage,
-//         totalEntries
-//       )} of ${totalEntries} entries`;
-//     }
-
-//     // Дезактивація кнопок
-//     prevPageBtn.classList.toggle("left-disabled", currentPage === 1);
-//     nextPageBtn.classList.toggle(
-//       "pagination-right-disabled",
-//       currentPage === totalPages
-//     );
-
-//     // Оновлення списку сторінок
-//     paginationList.innerHTML = "";
-
-//     for (let i = 1; i <= totalPages; i++) {
-//       if (
-//         i === 1 || // Перша сторінка
-//         i === totalPages || // Остання сторінка
-//         (i >= currentPage - 1 && i <= currentPage + 1) // Поточна, попередня і наступна сторінки
-//       ) {
-//         const pageItem = document.createElement("li");
-//         pageItem.classList.add("page-item");
-
-//         const pageLink = document.createElement("a");
-//         pageLink.href = "#";
-//         pageLink.textContent = i;
-//         pageLink.classList.add("page-link");
-
-//         if (i === currentPage) {
-//           pageItem.classList.add("active");
-//         }
-
-//         pageLink.addEventListener("click", (e) => {
-//           e.preventDefault();
-//           currentPage = i;
-//           fetchAndDisplayEntries(searchInput.value.trim());
-//         });
-
-//         pageItem.appendChild(pageLink);
-//         paginationList.appendChild(pageItem);
-//       } else if (
-//         (i === currentPage - 2 && currentPage > 3) ||
-//         (i === currentPage + 2 && currentPage < totalPages - 2)
-//       ) {
-//         const dots = document.createElement("li");
-//         dots.classList.add("page-item", "disabled");
-//         dots.innerHTML = `<a href="#">...</a>`;
-//         paginationList.appendChild(dots);
-//       }
-//     }
-//   }
-
-//   // Функція для відображення записів
-//   function displayEntries(entries) {
-//     entriesContainer.innerHTML = `
-//     <div class="hover-table">
-//         <p class="name">Customer Name</p>
-//         <p class="company">Company</p>
-//         <p class="number">Phone Number</p>
-//         <p class="email">Email</p>
-//         <p class="country">Country</p>
-//         <p class="statuse">Status</p>
-//     </div>`;
-
-//     if (!Array.isArray(entries) || entries.length === 0) {
-//       entriesContainer.textContent = "Немає записів для відображення";
-//       return;
-//     }
-
-//     entries.forEach((entry) => {
-//       const entryDiv = document.createElement("div");
-//       entryDiv.classList.add("entry");
-
-//       entryDiv.innerHTML = `
-//       <div class="content-table">
-//         <p class="name">${entry.CustomerName}</p>
-//         <p class="company">${entry.Company}</p>
-//         <p class="number">${entry.PhoneNumber}</p>
-//         <p class="email">${entry.Email}</p>
-//         <p class="country">${entry.Country}</p>
-//         <p>
-//           <span class="status ${
-//             entry.Status === "Active" ? "active" : "inactive"
-//           }">
-//            ${entry.Status}
-//            </span>
-//         </p>
-//       </div>
-//       `;
-
-//       entriesContainer.appendChild(entryDiv);
-//     });
-//   }
-
-//   // Функція завантаження та фільтрації записів
-//   function fetchAndDisplayEntries(searchQuery = "") {
-//     const dataToShow = searchQuery
-//       ? fullData.filter((entry) =>
-//           Object.values(entry).some((value) =>
-//             value.toString().toLowerCase().includes(searchQuery.toLowerCase())
-//           )
-//         )
-//       : fullData;
-
-//     filteredData = dataToShow; // Оновлюємо відфільтровані дані
-//     const totalEntries = filteredData.length;
-
-//     updatePagination(totalEntries);
-
-//     const start = (currentPage - 1) * recordsPerPage;
-//     const end = start + recordsPerPage;
-//     const entriesToShow = filteredData.slice(start, end);
-
-//     displayEntries(entriesToShow);
-//   }
-
-//   // Завантаження даних з JSON
-//   function loadData() {
-//     fetch(`/json/cost.json`)
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error("Помилка на сервері, спробуйте пізніше.");
-//         }
-//         return response.json();
-//       })
-//       .then((data) => {
-//         if (!data || !Array.isArray(data.entries)) {
-//           throw new Error("Невірний формат даних");
-//         }
-
-//         fullData = data.entries; // Зберігаємо всі записи
-//         fetchAndDisplayEntries(); // Відображаємо записи
-//       })
-//       .catch((error) => {
-//         console.error("Помилка при завантаженні даних:", error);
-//         entriesContainer.innerHTML = "Не вдалося завантажити дані.";
-//       });
-//   }
-
-//   // Подія для кнопки "Попередня"
-//   prevPageBtn.addEventListener("click", () => {
-//     if (currentPage > 1) {
-//       currentPage--;
-//       fetchAndDisplayEntries(searchInput.value.trim());
-//     }
-//   });
-
-//   // Подія для кнопки "Наступна"
-//   nextPageBtn.addEventListener("click", () => {
-//     const totalPages = Math.ceil(filteredData.length / recordsPerPage);
-//     if (currentPage < totalPages) {
-//       currentPage++;
-//       fetchAndDisplayEntries(searchInput.value.trim());
-//     }
-//   });
-
-//   // Подія для пошуку
-//   searchInput.addEventListener("input", (e) => {
-//     const query = e.target.value.trim();
-//     currentPage = 1; // Скидаємо поточну сторінку
-//     fetchAndDisplayEntries(query);
-//   });
-
-//   loadData(); // Завантаження даних при старті сторінки
-// });
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const entriesContainer = document.getElementById("entries-container");
@@ -204,29 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevPageBtn = document.getElementById("prev-page");
   const nextPageBtn = document.getElementById("next-page");
   const paginationInfo = document.getElementById("pagination-info");
-
-  if (
-    !searchInput ||
-    !entriesContainer ||
-    !paginationList ||
-    !prevPageBtn ||
-    !nextPageBtn ||
-    !paginationInfo
-  ) {
-    console.error("Не знайдені потрібні елементи. Перевірте HTML.");
-    return;
-  }
+  const filterActiveBtn = document.getElementById("filter-active");
 
   let currentPage = 1;
   const recordsPerPage = 8;
-  let fullData = []; // Усі записи з JSON
-  let filteredData = []; // Дані після фільтрації
+  let fullData = [];
+  let filteredData = [];
+  let activeFilter = false; // Фільтр активних користувачів
 
-  // Функція оновлення пагінації
+  // Оновлення пагінації
   function updatePagination(totalEntries) {
     const totalPages = Math.ceil(totalEntries / recordsPerPage);
 
-    // Оновлюємо текст інформації
+    // Оновлення тексту пагінації
     paginationInfo.textContent = totalEntries
       ? `Showing data ${(currentPage - 1) * recordsPerPage + 1} to ${Math.min(
           currentPage * recordsPerPage,
@@ -234,15 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
         )} of ${totalEntries} entries`
       : "No data to display";
 
-    // Оновлення кнопок
+    // Оновлення кнопок пагінації
     prevPageBtn.classList.toggle("left-disabled", currentPage === 1);
     nextPageBtn.classList.toggle(
       "pagination-right-disabled",
       currentPage === totalPages
     );
 
-    // Оновлення сторінок у пагінації
+    // Оновлення сторінок
     paginationList.innerHTML = "";
+
+    if (totalPages <= 5) {
+      for (let i = 1; i <= totalPages; i++) {
+        const pageItem = createPageItem(i);
+        paginationList.appendChild(pageItem);
+      }
+      return;
+    }
 
     for (let i = 1; i <= totalPages; i++) {
       if (
@@ -250,23 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         i === totalPages || // Остання сторінка
         (i >= currentPage - 1 && i <= currentPage + 1) // Сусідні сторінки
       ) {
-        const pageItem = document.createElement("li");
-        pageItem.classList.add("page-item");
-
-        const pageLink = document.createElement("a");
-        pageLink.href = "#";
-        pageLink.textContent = i;
-        pageLink.classList.add("page-link");
-
-        if (i === currentPage) pageItem.classList.add("active");
-
-        pageLink.addEventListener("click", (e) => {
-          e.preventDefault();
-          currentPage = i;
-          displayFilteredData();
-        });
-
-        pageItem.appendChild(pageLink);
+        const pageItem = createPageItem(i);
         paginationList.appendChild(pageItem);
       } else if (
         (i === currentPage - 2 && currentPage > 3) ||
@@ -280,7 +63,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Функція для відображення записів
+  // Створення елемента сторінки
+  function createPageItem(page) {
+    const pageItem = document.createElement("li");
+    pageItem.classList.add("page-item");
+
+    const pageLink = document.createElement("a");
+    pageLink.href = "#";
+    pageLink.textContent = page;
+    pageLink.classList.add("page-link");
+
+    if (page === currentPage) pageItem.classList.add("active");
+
+    pageLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentPage = page;
+      displayFilteredData(); // Відображаємо дані на обраній сторінці
+    });
+
+    pageItem.appendChild(pageLink);
+    return pageItem;
+  }
+
+  // Відображення записів
   function displayEntries(entries) {
     entriesContainer.innerHTML = `
     <div class="hover-table">
@@ -293,7 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`;
 
     if (!Array.isArray(entries) || entries.length === 0) {
-      entriesContainer.innerHTML += "<p>Немає записів для відображення</p>";
+      entriesContainer.innerHTML +=
+        "<p class='no-data'>Немає записів для відображення.</p>";
       return;
     }
 
@@ -320,10 +126,27 @@ document.addEventListener("DOMContentLoaded", () => {
     entriesContainer.innerHTML += entriesMarkup;
   }
 
-  // Функція відображення фільтрованих даних
+  // Фільтрація даних
+  function applyFilters(searchQuery = "") {
+    filteredData = fullData.filter((entry) => {
+      const matchesSearch = Object.values(entry)
+        .filter((value) => value !== null && value !== undefined)
+        .some((value) =>
+          value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+      const matchesActive = !activeFilter || entry.Status === "Active"; // Перевірка на активність
+
+      return matchesSearch && matchesActive;
+    });
+
+    currentPage = 1; // Перезавантажуємо на першу сторінку при кожному фільтрі
+    displayFilteredData(); // Оновлюємо відображення
+  }
+
+  // Відображення фільтрованих даних
   function displayFilteredData() {
     const totalEntries = filteredData.length;
-
     updatePagination(totalEntries);
 
     const start = (currentPage - 1) * recordsPerPage;
@@ -333,40 +156,34 @@ document.addEventListener("DOMContentLoaded", () => {
     displayEntries(entriesToShow);
   }
 
-  // Функція застосування фільтрації
-  function applyFilters(searchQuery = "") {
-    filteredData = fullData.filter((entry) =>
-      Object.values(entry)
-        .filter((value) => value !== null && value !== undefined) // Уникаємо null/undefined
-        .some((value) =>
-          value.toString().toLowerCase().includes(searchQuery.toLowerCase())
-        )
-    );
-
-    currentPage = 1; // Скидаємо до першої сторінки
-    displayFilteredData();
-  }
-
-  // Завантаження даних із JSON
+  // Завантаження даних з JSON
   function loadData() {
+    entriesContainer.innerHTML = "<p class='loading'>Завантаження даних...</p>";
     fetch(`/json/cost.json`)
       .then((response) => {
-        if (!response.ok)
-          throw new Error("Помилка на сервері, спробуйте пізніше.");
+        if (!response.ok) throw new Error("Помилка на сервері.");
         return response.json();
       })
       .then((data) => {
         if (!data || !Array.isArray(data.entries))
           throw new Error("Невірний формат даних");
 
-        fullData = data.entries; // Зберігаємо дані
-        applyFilters(); // Початкове відображення
+        fullData = data.entries;
+        applyFilters(); // Початкове відображення даних
       })
       .catch((error) => {
         console.error("Помилка при завантаженні даних:", error);
         entriesContainer.innerHTML = "Не вдалося завантажити дані.";
       });
   }
+
+  // Кнопка фільтрації активних користувачів
+  filterActiveBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    activeFilter = !activeFilter; // Перемикаємо фільтр активних користувачів
+    filterActiveBtn.classList.toggle("active", activeFilter); // Зміна стилю кнопки
+    applyFilters(searchInput.value.trim()); // Оновлюємо дані з поточним пошуковим запитом
+  });
 
   // Події для кнопок пагінації
   prevPageBtn.addEventListener("click", () => {
@@ -384,9 +201,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Подія для пошуку
+  // Реалізація debounce для пошуку
+  let debounceTimeout;
   searchInput.addEventListener("input", (e) => {
-    applyFilters(e.target.value.trim());
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(() => {
+      applyFilters(e.target.value.trim());
+    }, 300); // Затримка 300 мс
   });
 
   loadData(); // Завантажуємо дані при завантаженні сторінки

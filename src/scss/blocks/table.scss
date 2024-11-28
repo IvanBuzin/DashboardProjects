@@ -42,12 +42,16 @@ table.customers-table {
   position: absolute;
   left: 666px;
 }
-.statuse,
-.statuseinactive,
-.statuseactive {
+.statuse {
   position: absolute;
   left: 818px;
 }
+.statuseinactive,
+.statuseactive {
+  position: absolute;
+  left: 802px;
+}
+
 table.customers-table th,
 table.customers-table td {
   text-align: left;

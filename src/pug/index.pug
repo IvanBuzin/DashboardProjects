@@ -56,7 +56,8 @@ html(lang="en")
       
       .customers
         h2.customers-info All Customers
-        a#filter-active(href="#" role="button" class="active-content") Active Members
+          //- Кнопка "Active Members"
+        a#filter-active(href="#" role="button" class="active-content" data-active="false") Active Members
                           //- Search Input
                           .search-bar
                             img.search-icon(src="img/search.svg", alt="Search")
